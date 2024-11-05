@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="apple-touch-icon" sizes="76x76" href="{{asset('argon/assets/img/apple-icon.png')}}">
-  <link rel="icon" type="image/png" href="{{asset('argon/assets/img/favicon.png')}}">
+  <link rel="icon" type="image/png" href="{{asset('argon/assets/img/home.png')}}">
   <title>
     PerumKita | Portal Warga Perum
   </title>
@@ -113,7 +113,7 @@
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg blur border-radius-lg top-0 z-index-3 shadow position-absolute mt-4 py-2 start-0 end-0 mx-4">
           <div class="container-fluid">
-            <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 " href="{{route('welcome')}}">
+            <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 " href="{{route('landing.index')}}">
               PerumKita
             </a>
             <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
@@ -126,13 +126,13 @@
             <div class="collapse navbar-collapse" id="navigation">
               <ul class="navbar-nav mx-auto">
                 <li class="nav-item">
-                  <a class="nav-link d-flex align-items-center me-2 active" aria-current="page" href="{{route('home')}}">
+                  <a class="nav-link d-flex align-items-center me-2 active" aria-current="page" href="{{route('landing.index')}}">
                     <i class="fa fa-chart-pie opacity-6 text-dark me-1"></i>
-                    Dashboard
+                    Home
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link me-2" href="#">
+                  <a class="nav-link me-2" href="{{route('landing.about')}}">
                     <i class="fas fa-user-circle opacity-6 text-dark me-1"></i>
                     About App
                   </a>
@@ -146,7 +146,7 @@
               </ul>
               <ul class="navbar-nav d-lg-block d-none">
                 <li class="nav-item">
-                  <a href="#" class="font-weight-bolder ms-lg-0 ms-3 invisible">Hello World</a>
+                  <a href="{{route('login')}}" class="btn btn-sm mb-0 me-1 btn-primary">Sign in</a>
                 </li>
               </ul>
             </div>

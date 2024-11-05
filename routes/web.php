@@ -2,9 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
+Route::get('/', [App\Http\Controllers\LandingController::class, 'index'])->name('landing.index');
+Route::get('/about', [App\Http\Controllers\LandingController::class, 'about'])->name('landing.about');
 
 Auth::routes();
 
