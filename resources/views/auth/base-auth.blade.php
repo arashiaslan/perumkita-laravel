@@ -146,11 +146,19 @@
                   </a>
                 </li>
               </ul>
+              @guest
               <ul class="navbar-nav d-lg-block d-none">
                 <li class="nav-item">
                   <a href="{{route('login')}}" class="btn btn-sm mb-0 me-1 btn-primary">Sign in</a>
                 </li>
               </ul>
+              @else
+              <ul class="navbar-nav d-lg-block d-none">
+                <li class="nav-item">
+                  <a href="{{Auth::user()->role === 'admin' ? route('admin.index') : route('user.index')}}" class="btn btn-sm mb-0 me-1 btn-primary"> Dashboard</a>
+                </li>
+              </ul>
+              @endguest
             </div>
           </div>
         </nav>
