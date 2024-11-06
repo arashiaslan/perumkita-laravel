@@ -85,7 +85,8 @@
   </script>
   <!-- end Analytics-Optimize Snippet -->
   <!-- Google Tag Manager -->
-  <script>
+
+  {{-- <script>
     (function(w, d, s, l, i) {
       w[l] = w[l] || [];
       w[l].push({
@@ -100,7 +101,8 @@
         'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
       f.parentNode.insertBefore(j, f);
     })(window, document, 'script', 'dataLayer', 'GTM-NKDMSK6');
-  </script>
+  </script> --}}
+  
   <!-- End Google Tag Manager -->
 </head>
 

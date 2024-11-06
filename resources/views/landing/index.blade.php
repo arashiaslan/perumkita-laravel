@@ -9,7 +9,7 @@
                         <p class="lead text-muted pb-5 px-5">PerumKita adalah aplikasi yang mempermudah warga perumahan dalam mengakses informasi dan layanan penting. Mulai dari jadwal sholat, galeri perumahan, berita, hingga pengaduan dan pemesanan makanan di kantin, semua tersedia dalam satu aplikasi. PerumKita hadir untuk menjadikan komunitas perumahan lebih terhubung dan nyaman.</p>
                         <div class="d-flex justify-content-center gap-3 my-4">
                             <a href="{{route('register')}}" class="btn btn-primary btn-lg mr-2">Get Started</a>
-                            <a href="#" class="btn btn-outline-secondary btn-lg">View Demos</a>
+                            <a href="#" class="btn btn-lg btn-white">View Demos</a>
                         </div>
                     </div>
                 </div>
