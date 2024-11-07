@@ -1,12 +1,12 @@
 @extends('auth.base-auth')
 
 @section('content')
-    <main class="main-content mt-0">
+    <main class="main-content mt-0 animate__animated animate__fadeIn">
         <div class="page-header min-vh-100" style="background-color: #b0e0ffa9">
-            <div class="container my-7">
+            <div class="container my-7 animate__animated animate__fadeIn">
                 <div class="row justify-content-center">
                     <div class="col-md-12">
-                        <div class="card">
+                        <div class="card ">
                             <div class="card-body">
                                 <h2 class="card-title">App Features</h2>
                                 <p class="card-text">

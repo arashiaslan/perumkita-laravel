@@ -1,10 +1,10 @@
 @extends('auth.base-auth')
 @section('content')
-    <main class="main-content  mt-0">
-        <div class="page-header align-items-start min-vh-50 pt-5 pb-11 m-3 border-radius-lg"
+    <main class="main-content  mt-0 animate__animated animate__fadeIn">
+        <div class="page-header align-items-start min-vh-50 pt-5 pb-11 m-3 border-radius-lg "
             style="background-image: url('{{asset('argon/assets/img/rg-bg.jpg')}}');">
             <span class="mask bg-gradient-dark opacity-6"></span>
-            <div class="container">
+            <div class="container animate__animated animate__fadeInDown">
                 <div class="row justify-content-center">
                     <div class="col-lg-5 text-center mx-auto">
                         <h1 class="text-white mb-2 mt-5">Selamat Datang!</h1>
@@ -16,7 +16,7 @@
         <div class="container">
             <div class="row mt-lg-n10 mt-md-n11 mt-n10 justify-content-center">
                 <div class="col-xl-4 col-lg-5 col-md-7 mx-auto">
-                    <div class="card z-index-0">
+                    <div class="card z-index-0 animate__animated animate__jackInTheBox">
                         <div class="card-header text-center pt-4 pb-0">
                             <h5>Register</h5>
                         </div>

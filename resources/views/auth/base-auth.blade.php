@@ -9,6 +9,7 @@
     PerumKita | Portal Warga Perum
   </title>
   <!-- Extra details for Live View on GitHub Pages -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
   <!-- Canonical SEO -->
   <link rel="canonical" href="https://www.creative-tim.com/product/argon-dashboard" />
   <!--  Social tags      -->
