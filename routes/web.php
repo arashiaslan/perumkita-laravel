@@ -8,6 +8,7 @@ use App\Http\Controllers\AdminController;
 
 Route::get('/', [App\Http\Controllers\LandingController::class, 'index'])->name('landing.index');
 Route::get('/about', [App\Http\Controllers\LandingController::class, 'about'])->name('landing.about');
+Route::get('/features', [App\Http\Controllers\LandingController::class, 'features'])->name('landing.features');
 
 Auth::routes();
 

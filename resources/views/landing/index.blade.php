@@ -2,7 +2,7 @@
 @section('content')
     <main class="main-content  mt-0" >
         <section >
-            <div class="page-header min-vh-100" style="background-image: url('{{asset('argon/assets/img/landing-bg.jpg')}}')">
+            <div class="page-header min-vh-100" style="background-image: url('{{asset('argon/assets/img/landing/landing-bg.jpg')}}')">
                 <div class="container" >
                     <div class="container text-center my-5">
                         @guest

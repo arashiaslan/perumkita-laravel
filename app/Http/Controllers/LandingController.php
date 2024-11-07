@@ -15,4 +15,8 @@ class LandingController extends Controller
     {
         return view('landing.about');
     }
+    public function features()
+    {
+        return view('landing.features');
+    }
 }
