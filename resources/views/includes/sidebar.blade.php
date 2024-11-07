@@ -13,13 +13,43 @@
     </div>
     <hr class="horizontal dark mt-0">
     @if (Auth::user()->role == 'admin')
-        <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
-            <ul class="navbar-nav">
-                <li class="nav-item mt-3">
+    <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
+        <ul class="navbar-nav">
+            <li class="nav-item mt-3">
+                <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Halaman Utama</h6>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="{{ route('landing.index') }}">
+                    <div
+                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Home</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="{{ route('landing.about') }}">
+                    <div
+                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="ni ni-single-copy-04 text-dark text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">About App</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="{{ route('landing.features') }}">
+                    <div
+                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="ni ni-collection text-dark text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Features</span>
+                </a>
+            </li>
+            <li class="nav-item mt-3">
                     <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Informasi Warga</h6>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="">
+                    <a class="nav-link" href="">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="ni ni-tv-2 text-dark text-sm opacity-10"></i>
@@ -43,10 +73,11 @@
                     <a class="nav-link " href="">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
+                            <i class="ni ni-single-copy-04 text-dark text-sm opacity-10"></i>
                         </div>
-                        <span class="nav-link-text ms-1">Jadwal Sholat</span>
+                        <span class="nav-link-text ms-1">Kelola Artikel</span>
                     </a>
+                </li>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link " href="">
@@ -54,7 +85,7 @@
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="ni ni-single-copy-04 text-dark text-sm opacity-10"></i>
                         </div>
-                        <span class="nav-link-text ms-1">Artikel</span>
+                        <span class="nav-link-text ms-1">Kelola Kantin</span>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -63,37 +94,7 @@
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="ni ni-collection text-dark text-sm opacity-10"></i>
                         </div>
-                        <span class="nav-link-text ms-1">Galeri Desa</span>
-                    </a>
-                </li>
-                <li class="nav-item mt-3">
-                    <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Halaman Utama</h6>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link " href="{{ route('landing.index') }}">
-                        <div
-                            class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
-                        </div>
-                        <span class="nav-link-text ms-1">Home</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link " href="{{ route('landing.about') }}">
-                        <div
-                            class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="ni ni-single-copy-04 text-dark text-sm opacity-10"></i>
-                        </div>
-                        <span class="nav-link-text ms-1">About App</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link " href="{{ route('landing.features') }}">
-                        <div
-                            class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="ni ni-collection text-dark text-sm opacity-10"></i>
-                        </div>
-                        <span class="nav-link-text ms-1">Features</span>
+                        <span class="nav-link-text ms-1">Kelola Galeri</span>
                     </a>
                 </li>
             </ul>
@@ -109,8 +110,8 @@
                     </div>
                 </div>
             </div>
-            <a href="" target="_blank" class="btn btn-dark btn-sm w-100 mb-3">Feedback</a>
-            <a class="btn btn-danger btn-sm mb-0 w-100 mt-10" href="{{ route('logout') }}"
+            <a href="https://instagram.com/vnochlea" target="_blank" class="btn btn-dark btn-sm w-100 mb-3">Feedback</a>
+            <a class="btn btn-danger btn-sm mb-0 w-100" href="{{ route('logout') }}"
                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                 Log-out
             </a>
@@ -123,28 +124,19 @@
         <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
             <ul class="navbar-nav">
                 <li class="nav-item mt-3">
-                    <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Informasi Warga</h6>
+                    <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Halaman Utama</h6>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="">
+                    <a class="nav-link " href="{{ route('landing.index') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="ni ni-tv-2 text-dark text-sm opacity-10"></i>
+                            <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
                         </div>
-                        <span class="nav-link-text ms-1">Data Warga</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link " href="">
-                        <div
-                            class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="ni ni-calendar-grid-58 text-dark text-sm opacity-10"></i>
-                        </div>
-                        <span class="nav-link-text ms-1">Pengaduan</span>
+                        <span class="nav-link-text ms-1">Home</span>
                     </a>
                 </li>
                 <li class="nav-item mt-3">
-                    <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Menu Aplikasi</h6>
+                    <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Menu</h6>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link " href="">
@@ -174,33 +166,45 @@
                     </a>
                 </li>
                 <li class="nav-item mt-3">
-                    <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Halaman Utama</h6>
+                    <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Kantin Perum</h6>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="{{ route('landing.index') }}">
+                    <a class="nav-link" href="">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
+                            <i class="ni ni-tv-2 text-dark text-sm opacity-10"></i>
                         </div>
-                        <span class="nav-link-text ms-1">Home</span>
+                        <span class="nav-link-text ms-1">Menu Kantin</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="{{ route('landing.about') }}">
+                    <a class="nav-link " href="">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="ni ni-single-copy-04 text-dark text-sm opacity-10"></i>
+                            <i class="ni ni-calendar-grid-58 text-dark text-sm opacity-10"></i>
                         </div>
-                        <span class="nav-link-text ms-1">About App</span>
+                        <span class="nav-link-text ms-1">Pesanan Saya</span>
+                    </a>
+                </li>
+                <li class="nav-item mt-3">
+                    <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Pengaduan Saya</h6>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">
+                        <div
+                            class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="ni ni-tv-2 text-dark text-sm opacity-10"></i>
+                        </div>
+                        <span class="nav-link-text ms-1">Buat Pengaduan</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="{{ route('landing.features') }}">
+                    <a class="nav-link " href="">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="ni ni-collection text-dark text-sm opacity-10"></i>
+                            <i class="ni ni-calendar-grid-58 text-dark text-sm opacity-10"></i>
                         </div>
-                        <span class="nav-link-text ms-1">Features</span>
+                        <span class="nav-link-text ms-1">Status Pengaduan</span>
                     </a>
                 </li>
             </ul>
