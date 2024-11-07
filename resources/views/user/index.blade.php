@@ -1,1 +1,3 @@
-<h1>User</h1>
+@extends('layouts.base-app')
+@section('content')
+@endsection
