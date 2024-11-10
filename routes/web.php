@@ -17,6 +17,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [UserController::class, 'index'])->name('user.index');
 });
+
 Route::middleware(['auth',AuthAdmin::class])->group(function () {
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
+    Route::get('/admin/profile', [AdminController::class, 'profile'])->name('admin.profile');
 });

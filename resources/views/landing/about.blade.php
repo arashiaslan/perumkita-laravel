@@ -1,7 +1,7 @@
 @extends('auth.base-auth')
 
 @section('content')
-    <main class="main-content mt-0 animate__animated animate__fadeIn">
+    <main class="main-content mt-0 ">
         <div class="page-header min-vh-100" style="background-image: url('{{ asset('argon/assets/img/landing/landing-bg.jpg') }}')">
             <div class="container animate__animated animate__fadeIn">
                 <div class="row justify-content-center">

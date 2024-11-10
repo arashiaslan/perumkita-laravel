@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link rel="apple-touch-icon" sizes="76x76" href="{{asset('argon/assets/img/home.png')}}">
     <link rel="icon" type="image/png" href="{{asset('argon/assets/img/home.png')}}">
     <title>
@@ -23,7 +24,7 @@
 <body class="g-sidenav-show   bg-gray-100">
     <div class="min-height-300 bg-dark position-absolute w-100"></div>
     @include('includes.sidebar')
-    <main class="main-content position-relative border-radius-lg ">
+    <main class="main-content position-relative border-radius-lg">
         @include('includes.navbar')
         @yield('content')
         @include('includes.footer')
