@@ -31,7 +31,7 @@
                                 <div class="numbers">
                                     <p class="text-sm mb-0 text-uppercase font-weight-bold">Jumlah Warga</p>
                                     <h5 class="font-weight-bolder">
-                                        {{ \App\Models\User::where('role', 'user')->count() }}
+                                        {{ \App\Models\User::count() }}
                                     </h5>
                                 </div>
                             </div>

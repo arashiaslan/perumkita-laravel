@@ -32,32 +32,32 @@
                                 <div class="col">
                                     <div class="d-flex justify-content-center">
                                         <div class="d-grid text-center">
-                                            <span class="text-lg font-weight-bolder">22</span>
-                                            <span class="text-sm opacity-8">Friends</span>
+                                            <span class="text-lg font-weight-bolder">2</span>
+                                            <span class="text-sm opacity-8">Istri</span>
                                         </div>
                                         <div class="d-grid text-center mx-4">
-                                            <span class="text-lg font-weight-bolder">10</span>
-                                            <span class="text-sm opacity-8">Photos</span>
+                                            <span class="text-lg font-weight-bolder">7</span>
+                                            <span class="text-sm opacity-8">Anak</span>
                                         </div>
                                         <div class="d-grid text-center">
-                                            <span class="text-lg font-weight-bolder">89</span>
-                                            <span class="text-sm opacity-8">Comments</span>
+                                            <span class="text-lg font-weight-bolder">2</span>
+                                            <span class="text-sm opacity-8">Rumah</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="text-center mt-4">
                                 <h5>
-                                    Mark Davis<span class="font-weight-light">, 35</span>
+                                    {{Auth::user()->name}}
                                 </h5>
                                 <div class="h6 font-weight-300">
-                                    <i class="ni location_pin mr-2"></i>Bucharest, Romania
+                                    <i class="ni location_pin mr-2" id="location"></i>Downtown, Jakarta
                                 </div>
                                 <div class="h6 mt-4">
-                                    <i class="ni business_briefcase-24 mr-2"></i>Solution Manager - Creative Tim Officer
+                                    <i class="ni business_briefcase-24 mr-2"></i>Housing Leader - Overpower RT
                                 </div>
                                 <div>
-                                    <i class="ni education_hat mr-2"></i>University of Computer Science
+                                    <i class="ni education_hat mr-2"></i>University of Homeladder
                                 </div>
                             </div>
                         </div>
@@ -65,10 +65,13 @@
                 </div>
                 <div class="col-md-8">
                     <div class="card">
+                        <form action="{{ route('admin.profile.update') }}" method="post">
+                            @csrf
+                            @method('PUT')
                         <div class="card-header pb-0">
                             <div class="d-flex align-items-center">
                                 <p class="mb-0">Edit Profile</p>
-                                <button class="btn btn-primary btn-sm ms-auto">Settings</button>
+                                <button class="btn btn-primary btn-sm ms-auto" type="submit">Update</button>
                             </div>
                         </div>
                         <div class="card-body">
@@ -76,26 +79,14 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="example-text-input" class="form-control-label">Username</label>
-                                        <input class="form-control" type="text" value="lucky.jesse">
+                                        <label for="example-text-input" class="form-control-label">Name</label>
+                                        <input class="form-control" type="text" name="name" value="{{ old('name', $admin->name) }}" required>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="example-text-input" class="form-control-label">Email address</label>
-                                        <input class="form-control" type="email" value="jesse@example.com">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="example-text-input" class="form-control-label">First name</label>
-                                        <input class="form-control" type="text" value="Jesse">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="example-text-input" class="form-control-label">Last name</label>
-                                        <input class="form-control" type="text" value="Lucky">
+                                        <input class="form-control" type="email" name="email" value="{{ old('email', $admin->email) }}" required>
                                     </div>
                                 </div>
                             </div>
@@ -106,25 +97,25 @@
                                     <div class="form-group">
                                         <label for="example-text-input" class="form-control-label">Address</label>
                                         <input class="form-control" type="text"
-                                            value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09">
+                                            value="Jl. Raya Harapan Indah, No. 32">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="example-text-input" class="form-control-label">City</label>
-                                        <input class="form-control" type="text" value="New York">
+                                        <input class="form-control" type="text" value="Jakarta">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="example-text-input" class="form-control-label">Country</label>
-                                        <input class="form-control" type="text" value="United States">
+                                        <input class="form-control" type="text" value="Indonesia">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="example-text-input" class="form-control-label">Postal code</label>
-                                        <input class="form-control" type="text" value="437300">
+                                        <input class="form-control" type="text" value="92716">
                                     </div>
                                 </div>
                             </div>
@@ -135,52 +126,15 @@
                                     <div class="form-group">
                                         <label for="example-text-input" class="form-control-label">About me</label>
                                         <input class="form-control" type="text"
-                                            value="A beautiful Dashboard for Bootstrap 5. It is Free and Open Source.">
+                                            value="Seorang Pak RT yang tampan, tidak pelit, dan tidak sombong. Hobi saya membantu warga yang membutuhkan.">
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        </form>
                     </div>
                 </div>
             </div>
-            <footer class="footer pt-3  ">
-                <div class="container-fluid">
-                    <div class="row align-items-center justify-content-lg-between">
-                        <div class="col-lg-6 mb-lg-0 mb-4">
-                            <div class="copyright text-center text-sm text-muted text-lg-start">
-                                ©
-                                <script>
-                                    document.write(new Date().getFullYear())
-                                </script>,
-                                made with <i class="fa fa-heart"></i> by
-                                <a href="https://www.creative-tim.com" class="font-weight-bold" target="_blank">Creative
-                                    Tim</a>
-                                for a better web.
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <ul class="nav nav-footer justify-content-center justify-content-lg-end">
-                                <li class="nav-item">
-                                    <a href="https://www.creative-tim.com" class="nav-link text-muted"
-                                        target="_blank">Creative Tim</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="https://www.creative-tim.com/presentation" class="nav-link text-muted"
-                                        target="_blank">About Us</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="https://www.creative-tim.com/blog" class="nav-link text-muted"
-                                        target="_blank">Blog</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="https://www.creative-tim.com/license" class="nav-link pe-0 text-muted"
-                                        target="_blank">License</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </footer>
         </div>
     </div>
 @endsection

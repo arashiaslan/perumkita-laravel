@@ -21,4 +21,9 @@ Route::middleware(['auth'])->group(function () {
 Route::middleware(['auth',AuthAdmin::class])->group(function () {
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
     Route::get('/admin/profile', [AdminController::class, 'profile'])->name('admin.profile');
+    Route::put('/admin/profile', [AdminController::class, 'updateProfile'])->name('admin.profile.update');
+    Route::get('/admin/userdata', [AdminController::class, 'user_data'])->name('admin.user.data');
+    Route::get('/admin/userdata/{id}/edit', [AdminController::class, 'edit'])->name('admin.user.edit');
+    Route::put('/admin/userdata/{id}', [AdminController::class, 'update'])->name('admin.user.update');
+    Route::delete('/admin/userdata/delete/{id}', [AdminController::class, 'delete'])->name('admin.user.delete');
 });
