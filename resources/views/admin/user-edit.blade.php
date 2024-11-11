@@ -126,7 +126,7 @@
                                 <div class="form-group">
                                     <label for="example-text-input" class="form-control-label">About me</label>
                                     <input class="form-control" type="text"
-                                        value="Seorang Pak RT yang tampan, tidak pelit, dan tidak sombong. Hobi saya membantu warga yang membutuhkan.">
+                                        value="Seorang Warga yang taat, dan bijaksana. Suka berbagi Nasi Kuning di hari Jumat.">
                                 </div>
                             </div>
                         </div>
