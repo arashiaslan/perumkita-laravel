@@ -58,7 +58,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="">
+                    <a class="nav-link " href="{{ route('admin.complaints.index') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="ni ni-calendar-grid-58 text-dark text-sm opacity-10"></i>
@@ -70,7 +70,7 @@
                     <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Menu Aplikasi</h6>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="">
+                    <a class="nav-link " href="{{ route('admin.artikel.index') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="ni ni-single-copy-04 text-dark text-sm opacity-10"></i>
@@ -80,7 +80,7 @@
                 </li>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="">
+                    <a class="nav-link " href="{{ route('admin.kantin.index') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="ni ni-single-copy-04 text-dark text-sm opacity-10"></i>
@@ -89,7 +89,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="">
+                    <a class="nav-link " href="{{ route('admin.galeri.index') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="ni ni-collection text-dark text-sm opacity-10"></i>
@@ -139,7 +139,7 @@
                     <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Menu</h6>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="">
+                    <a class="nav-link " href="{{ route('user.jadwal-sholat') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="ni ni-istanbul text-dark text-sm opacity-10"></i>
@@ -148,7 +148,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="">
+                    <a class="nav-link " href="{{ route('user.artikel') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="ni ni-single-copy-04 text-dark text-sm opacity-10"></i>
@@ -157,7 +157,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="">
+                    <a class="nav-link " href="{{ route('user.galeri') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="ni ni-collection text-dark text-sm opacity-10"></i>
@@ -169,7 +169,7 @@
                     <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Kantin Perum</h6>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="">
+                    <a class="nav-link" href="{{ route('user.kantin') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="ni ni-tv-2 text-dark text-sm opacity-10"></i>
@@ -190,7 +190,7 @@
                     <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Pengaduan Saya</h6>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="">
+                    <a class="nav-link" href="{{ route('user.pengaduan') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="ni ni-tv-2 text-dark text-sm opacity-10"></i>
@@ -199,12 +199,12 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="">
+                    <a class="nav-link " href="{{ route('user.riwayat-pengaduan') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="ni ni-calendar-grid-58 text-dark text-sm opacity-10"></i>
                         </div>
-                        <span class="nav-link-text ms-1">Status Pengaduan</span>
+                        <span class="nav-link-text ms-1">Riwayat Pengaduan</span>
                     </a>
                 </li>
             </ul>

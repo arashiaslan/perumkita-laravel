@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Complaint;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -32,19 +33,19 @@ class AdminController extends Controller
         return redirect()->route('admin.profile')->with('success', 'Profile updated successfully');
     }
 
-    public function user_data()
+    public function userData()
     {
-        $users = User::all();
+        $users = User::where('role', 'user')->get();
         return view('admin.user-data', compact('users'));
     }
 
-    public function edit($id)
+    public function editWarga($id)
     {
         $user = User::findOrFail($id); // Cari user berdasarkan ID
         return view('admin.user-edit', compact('user'));
     }
 
-    public function update(Request $request, $id)
+    public function updateWarga(Request $request, $id)
     {
         $request->validate([
         'name' => 'required|string|max:255',
@@ -56,12 +57,34 @@ class AdminController extends Controller
         $user->email = $request->input('email');
         $user->save();
 
-        return redirect()->route('admin.user.edit', $id)->with('success', 'User updated successfully');
+        return redirect()->route('admin.user.data')->with('success', 'User updated successfully');
     }
 
-    public function delete($id)
+    public function deleteWarga($id)
     {
         User::findOrFail($id)->delete();
         return redirect()->route('admin.user.data')->with('success', 'User deleted successfully');
+    }
+
+    public function indexComplaint()
+    {   
+        $complaints = Complaint::all();
+        return view('admin.complaint', compact('complaints'));
+    }
+
+    public function indexArtikel()
+    {
+        return view('admin.artikel');
+    }
+
+    
+    public function indexKantin()
+    {
+        return view('admin.kantin');
+    }
+    
+    public function indexGaleri()
+    {
+        return view('admin.galeri');
     }
 }
