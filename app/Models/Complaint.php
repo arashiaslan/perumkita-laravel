@@ -18,8 +18,8 @@ class Complaint extends Model
     {
         return match ($this->status) {
             'pending' => '<span class="badge" style="background-color: #ff7976;">' . strtoupper($this->status) . '</span>',
+            'proses' => '<span class="badge" style="background-color: #57caeb;">' . strtoupper($this->status) . '</span>',
             'selesai' => '<span class="badge" style="background-color: #5ddab4;">' . strtoupper($this->status) . '</span>',
-            default => '<span class="badge" style="background-color: #57caeb;">' . strtoupper($this->status) . '</span>',
         };
     }
 }

@@ -24,7 +24,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/kantin', [UserController::class, 'kantin'])->name('user.kantin');
     Route::get('/pengaduan', [UserController::class, 'pengaduan'])->name('user.pengaduan');
     Route::post('/pengaduan', [UserController::class, 'storePengaduan'])->name('user.pengaduan.store');
-    Route::get('/riwayat-pengaduan', [UserController::class, 'riwayatPengaduan'])->name('user.riwayat-pengaduan');
+    Route::get('/riwayat-pengaduan', [UserController::class, 'historyPengaduan'])->name('user.pengaduan.history');
 });
 
 Route::middleware(['auth',AuthAdmin::class])->group(function () {
@@ -36,6 +36,7 @@ Route::middleware(['auth',AuthAdmin::class])->group(function () {
     Route::put('/admin/userdata/{id}', [AdminController::class, 'updateWarga'])->name('admin.user.update');
     Route::delete('/admin/userdata/delete/{id}', [AdminController::class, 'deleteWarga'])->name('admin.user.delete');
     Route::get('/admin/complaints', [AdminController::class, 'indexComplaint'])->name('admin.complaints.index');
+    Route::put('/admin/complaints/{id}', [AdminController::class, 'updateComplaint'])->name('admin.complaints.update');
     Route::get('/admin/artikel', [AdminController::class, 'indexArtikel'])->name('admin.artikel.index');
     Route::get('/admin/galeri', [AdminController::class, 'indexGaleri'])->name('admin.galeri.index');
     Route::get('/admin/kantin', [AdminController::class, 'indexKantin'])->name('admin.kantin.index');

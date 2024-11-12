@@ -59,8 +59,9 @@ class UserController extends Controller
         return redirect()->route('user.pengaduan')->with('success', 'Complaint added successfully');
     }
 
-    public function riwayatPengaduan()
+    public function historyPengaduan()
     {
-        return view('user.riwayat-pengaduan');
+        $complaints = Complaint::where('user_id', auth()->id())->get();
+        return view('user.riwayat-pengaduan', compact('complaints'));
     }
 }

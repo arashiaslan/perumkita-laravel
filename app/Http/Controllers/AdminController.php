@@ -72,11 +72,11 @@ class AdminController extends Controller
         return view('admin.complaint', compact('complaints'));
     }
 
-    public function updateStatus(Request $request, $id)
+    public function updateComplaint(Request $request, $id)
     {
         // Validasi input jika status diterima dari request
         $request->validate([
-            'status' => 'required|in:pending,selesai',
+            'status' => 'required|in:pending,proses,selesai',
         ]);
 
         // Cari complaint berdasarkan ID
@@ -87,7 +87,7 @@ class AdminController extends Controller
         $complaint->save();
 
         // Redirect dengan pesan sukses
-        return redirect()->route('complaints.index')->with('success', 'Status berhasil diperbarui');
+        return redirect()->route('admin.complaints.index')->with('success', 'Status berhasil diperbarui');
     }
 
     public function indexArtikel()
