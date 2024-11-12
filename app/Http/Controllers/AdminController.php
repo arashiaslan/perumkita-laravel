@@ -72,6 +72,24 @@ class AdminController extends Controller
         return view('admin.complaint', compact('complaints'));
     }
 
+    public function updateStatus(Request $request, $id)
+    {
+        // Validasi input jika status diterima dari request
+        $request->validate([
+            'status' => 'required|in:pending,selesai',
+        ]);
+
+        // Cari complaint berdasarkan ID
+        $complaint = Complaint::findOrFail($id);
+
+        // Update status
+        $complaint->status = $request->status;
+        $complaint->save();
+
+        // Redirect dengan pesan sukses
+        return redirect()->route('complaints.index')->with('success', 'Status berhasil diperbarui');
+    }
+
     public function indexArtikel()
     {
         return view('admin.artikel');
