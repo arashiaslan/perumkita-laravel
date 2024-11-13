@@ -32,7 +32,7 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     // API key untuk MuslimSalat
-    const API_KEY = 'd7aa593a543ff48f1b175dd057531fde';
+    const API_KEY = '';
     
     $.getJSON(`https://muslimsalat.com/london/daily.json?key=${API_KEY}&jsoncallback=?`, function (times) {
         console.log('Data API:', times); // Debug untuk memastikan data ter-load
