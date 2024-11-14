@@ -35,7 +35,7 @@ class AdminController extends Controller
 
     public function userData()
     {
-        $users = User::where('role', 'user')->get();
+        $users = User::where('role', 'user')->paginate(10);
         return view('admin.user-data', compact('users'));
     }
 
@@ -68,7 +68,7 @@ class AdminController extends Controller
 
     public function indexComplaint()
     {   
-        $complaints = Complaint::all();
+        $complaints = Complaint::paginate(5);
         return view('admin.complaint', compact('complaints'));
     }
 

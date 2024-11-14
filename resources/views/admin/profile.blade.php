@@ -10,7 +10,7 @@
                             <div class="col-4 col-lg-4 order-lg-2">
                                 <div class="mt-n4 mt-lg-n6 mb-4 mb-lg-0">
                                     <a href="javascript:;">
-                                        <img src="/argon/assets/img/team-2.jpg"
+                                        <img src="/argon/assets/img/team-3.jpg"
                                             class="rounded-circle img-fluid border border-2 border-white">
                                     </a>
                                 </div>
@@ -75,7 +75,6 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <p class="text-uppercase text-sm">User Information</p>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">

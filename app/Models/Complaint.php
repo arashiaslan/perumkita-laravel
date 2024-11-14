@@ -4,9 +4,11 @@ namespace App\Models;
 
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Complaint extends Model
 {
+    use HasFactory;
     protected $fillable = ['title', 'description', 'status', 'user_id', 'guest_name', 'guest_email', 'guest_telp'];
 
     public function user()
