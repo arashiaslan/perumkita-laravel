@@ -6,7 +6,7 @@
                 <div class="card mb-4">
                     <div class="card-header pb-0 d-flex justify-content-between align-items-center">
                         <h6>Data Warga Perumahan</h6>
-                        <a href="/tambah-artikel" class="btn btn-primary text-xxs">Tambah Artikel</a>
+                        <a href="{{route('admin.artikel.add')}}" class="btn btn-primary text-xxs">Tambah Artikel</a>
                     </div>
                     <div class="card-body px-0 pt-0 pb-2">
                         @if (Session::has('status'))
@@ -46,7 +46,7 @@
                                             <td>
                                                 <div class="d-flex align-items-center justify-content-center">
                                                     <div>
-                                                        <img src="{{ asset('/argon/assets/img/team-2.jpg') }}"
+                                                        <img src="{{ asset($article->image) }}"
                                                             class="avatar avatar-sm me-3" alt="user1">
                                                     </div>
                                                     <div class="d-flex flex-column justify-content-center">
@@ -57,7 +57,7 @@
                                             </td>
                                             <td class="align-middle text-center">
                                                 <span
-                                                    class="text-secondary text-xs font-weight-bold">{{ $article->writer?->name ?? 'Anonymous' }}</span>
+                                                    class="text-secondary text-xs font-weight-bold">{{$article->user?->name ?? $article->writer_name ?? 'Tidak ada nama penulis'}}</span>
                                             </td>
                                             <td class="align-middle text-center">
                                                 <span
@@ -65,17 +65,17 @@
                                             </td>
                                             <td class="align-middle">
                                                 <a href="" class="text-secondary font-weight-bold text-xs"
-                                                    data-toggle="tooltip" data-original-title="Edit user">
+                                                    data-toggle="tooltip" data-original-title="Edit artikel">
                                                     Edit
                                                 </a>
                                                 |
-                                                <form id="" action="" method="post" style="display: inline">
+                                                <form id="delete-form-{{ $article->id }}" action="{{route('admin.artikel.delete', $article->id)}}" method="post" style="display: inline">
                                                     @csrf
                                                     @method('DELETE')
                                                     <a href="javascript:void(0)"
-                                                        onclick="if(confirm('Apakah Anda yakin ingin menghapus artikel ini?')) { document.getElementById('').submit(); }"
+                                                        onclick="if(confirm('Apakah Anda yakin ingin menghapus artikel ini?')) { document.getElementById('delete-form-{{ $article->id }}').submit(); }"
                                                         class="text-secondary font-weight-bold text-xs"
-                                                        data-toggle="tooltip" data-original-title="Delete user">
+                                                        data-toggle="tooltip" data-original-title="Delete Article">
                                                         Hapus
                                                     </a>
                                                 </form>

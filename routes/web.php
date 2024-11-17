@@ -42,6 +42,10 @@ Route::middleware(['auth',AuthAdmin::class])->group(function () {
     Route::get('/admin/complaints', [AdminController::class, 'indexComplaint'])->name('admin.complaints.index');
     Route::put('/admin/complaints/{id}', [AdminController::class, 'updateComplaint'])->name('admin.complaints.update');
     Route::get('/admin/artikel', [AdminController::class, 'indexArtikel'])->name('admin.artikel.index');
+    Route::get('/admin/artikel/add', [AdminController::class, 'addArtikel'])->name('admin.artikel.add');
+    Route::post('/admin/artikel', [AdminController::class, 'storeArtikel'])->name('admin.artikel.store');
+    Route::delete('/admin/artikel/delete/{id}', [AdminController::class, 'deleteArtikel'])->name('admin.artikel.delete');
     Route::get('/admin/galeri', [AdminController::class, 'indexGaleri'])->name('admin.galeri.index');
     Route::get('/admin/kantin', [AdminController::class, 'indexKantin'])->name('admin.kantin.index');
+    
 });

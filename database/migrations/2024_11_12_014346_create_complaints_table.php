@@ -19,7 +19,6 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id')->nullable();
             $table->string('guest_name')->nullable();
             $table->string('guest_email')->nullable();
-            $table->string('guest_telp')->nullable();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');
         });

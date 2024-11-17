@@ -14,8 +14,10 @@ return new class extends Migration
         Schema::create('artikels', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->text('content');
+            $table->longtext('content');
             $table->string('image');
+            $table->string('writer_name')->nullable();
+            $table->string('writer_email')->nullable();
             $table->unsignedBigInteger('writer_id')->nullable();
             $table->foreign('writer_id')->references('id')->on('users')->onDelete('set null');
             $table->timestamps();

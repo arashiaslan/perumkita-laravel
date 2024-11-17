@@ -9,9 +9,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Artikel extends Model
 {
     use HasFactory;
-    protected $fillable = ['title', 'content', 'writer_id'];
+    protected $fillable = ['title', 'content', 'writer_id', 'writer_name', 'writer_email', 'image'];
     public function user()
     {
-        return $this->belongsTo(User::class, 'writer_id', 'id');
+        return $this->belongsTo(User::class);
     }
 }

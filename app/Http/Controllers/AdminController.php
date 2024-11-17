@@ -23,8 +23,8 @@ class AdminController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:users,email,'.auth()->id(),
-    ]);
+            'email' => 'required|email|unique:users,email,' . auth()->id(),
+        ]);
 
         $admin = auth()->user();
         $admin->name = $request->input('name');
@@ -49,9 +49,9 @@ class AdminController extends Controller
     public function updateWarga(Request $request, $id)
     {
         $request->validate([
-        'name' => 'required|string|max:255',
-        'email' => 'required|email|unique:users,email,'.$id,
-    ]);
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email,' . $id,
+        ]);
 
         $user = User::findOrFail($id);
         $user->name = $request->input('name');
@@ -68,7 +68,7 @@ class AdminController extends Controller
     }
 
     public function indexComplaint()
-    {   
+    {
         $complaints = Complaint::paginate(5);
         return view('admin.complaint', compact('complaints'));
     }
@@ -93,16 +93,51 @@ class AdminController extends Controller
 
     public function indexArtikel()
     {
-        $articles = Artikel::paginate(5);
+        $articles = Artikel::paginate(10);
         return view('admin.artikel', compact('articles'));
     }
 
-    
+    public function addArtikel()
+    {
+        return view('admin.artikel-add');
+    }
+
+    public function storeArtikel(Request $request)
+    {
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'content' => 'required|string',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+        // Upload gambar
+        $imageName = time() . '.' . $request->image->extension();
+        $request->image->move(public_path('images/article'), $imageName);
+
+        // Simpan artikel ke database
+        Artikel::create([
+            'title' => $request->title,
+            'content' => $request->content,
+            'image' => 'images/article/' . $imageName,
+            'writer_id' => auth()->id(),
+            'writer_name' => $request->writer_name,
+            'writer_email' => $request->writer_email,
+        ]);
+
+        return redirect()->route('admin.artikel.index')->with('success', 'Artikel berhasil ditambahkan.');
+    }
+
+    public function deleteArtikel($id) {
+        $article = Artikel::findOrFail($id);
+        $article->delete();
+        return redirect()->route('admin.artikel.index')->with('success', 'Artikel berhasil dihapus.');
+    }
+
     public function indexKantin()
     {
         return view('admin.kantin');
     }
-    
+
     public function indexGaleri()
     {
         return view('admin.galeri');
