@@ -127,6 +127,27 @@ class AdminController extends Controller
         return redirect()->route('admin.artikel.index')->with('success', 'Artikel berhasil ditambahkan.');
     }
 
+    public function editArtikel($id)
+    {
+        $article = Artikel::findOrFail($id);
+        return view('admin.artikel-edit', compact('article'));
+    }
+
+    public function updateArtikel(Request $request, $id)
+    {
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'content' => 'required|string',
+        ]);
+
+        $article = Artikel::findOrFail($id);
+        $article->title = $request->title;
+        $article->content = $request->content;
+        $article->save();
+
+        return redirect()->route('admin.artikel.index')->with('success', 'Artikel berhasil diperbarui.');
+    }
+
     public function deleteArtikel($id) {
         $article = Artikel::findOrFail($id);
         $article->delete();

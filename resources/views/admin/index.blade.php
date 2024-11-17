@@ -52,7 +52,7 @@
                                 <div class="numbers">
                                     <p class="text-sm mb-0 text-uppercase font-weight-bold">Pengaduan Masuk</p>
                                     <h5 class="font-weight-bolder">
-                                        7
+                                        {{ \App\Models\Complaint::count() }}
                                     </h5>
                                 </div>
                             </div>

@@ -24,7 +24,6 @@ class ComplaintFactory extends Factory
             'user_id' => User::factory(), // ini akan otomatis membuat user jika tidak ada
             'guest_name' => $this->faker->name,
             'guest_email' => $this->faker->safeEmail,
-            'guest_telp' => $this->faker->phoneNumber,
         ];
     }
 }

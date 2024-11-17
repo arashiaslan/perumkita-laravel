@@ -64,9 +64,9 @@
                                                     class="text-secondary text-xs font-weight-bold">{{ $article->created_at }}</span>
                                             </td>
                                             <td class="align-middle">
-                                                <a href="" class="text-secondary font-weight-bold text-xs"
+                                                <a href="{{ route('admin.artikel.edit', $article->id) }}" class="text-secondary font-weight-bold text-xs"
                                                     data-toggle="tooltip" data-original-title="Edit artikel">
-                                                    Edit
+                                                    EDIT
                                                 </a>
                                                 |
                                                 <form id="delete-form-{{ $article->id }}" action="{{route('admin.artikel.delete', $article->id)}}" method="post" style="display: inline">
@@ -76,7 +76,7 @@
                                                         onclick="if(confirm('Apakah Anda yakin ingin menghapus artikel ini?')) { document.getElementById('delete-form-{{ $article->id }}').submit(); }"
                                                         class="text-secondary font-weight-bold text-xs"
                                                         data-toggle="tooltip" data-original-title="Delete Article">
-                                                        Hapus
+                                                        HAPUS
                                                     </a>
                                                 </form>
                                             </td>

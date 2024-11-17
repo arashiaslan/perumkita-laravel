@@ -44,6 +44,8 @@ Route::middleware(['auth',AuthAdmin::class])->group(function () {
     Route::get('/admin/artikel', [AdminController::class, 'indexArtikel'])->name('admin.artikel.index');
     Route::get('/admin/artikel/add', [AdminController::class, 'addArtikel'])->name('admin.artikel.add');
     Route::post('/admin/artikel', [AdminController::class, 'storeArtikel'])->name('admin.artikel.store');
+    Route::get('/admin/artikel/{id}/edit', [AdminController::class, 'editArtikel'])->name('admin.artikel.edit');
+    Route::put('/admin/artikel/{id}', [AdminController::class, 'updateArtikel'])->name('admin.artikel.update');
     Route::delete('/admin/artikel/delete/{id}', [AdminController::class, 'deleteArtikel'])->name('admin.artikel.delete');
     Route::get('/admin/galeri', [AdminController::class, 'indexGaleri'])->name('admin.galeri.index');
     Route::get('/admin/kantin', [AdminController::class, 'indexKantin'])->name('admin.kantin.index');
