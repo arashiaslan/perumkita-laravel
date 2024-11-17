@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Artikel;
 use App\Models\Complaint;
 use Illuminate\Http\Request;
 
@@ -92,7 +93,8 @@ class AdminController extends Controller
 
     public function indexArtikel()
     {
-        return view('admin.artikel');
+        $articles = Artikel::paginate(5);
+        return view('admin.artikel', compact('articles'));
     }
 
     

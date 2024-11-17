@@ -7,6 +7,10 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ComplaintController;
 
+Route::get('/up', function () {
+    return view('up');
+});
+
 Route::get('/', [App\Http\Controllers\LandingController::class, 'index'])->name('landing.index');
 Route::get('/about', [App\Http\Controllers\LandingController::class, 'about'])->name('landing.about');
 Route::get('/features', [App\Http\Controllers\LandingController::class, 'features'])->name('landing.features');
