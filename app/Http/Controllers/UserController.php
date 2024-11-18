@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Artikel;
 use App\Models\Complaint;
 use Illuminate\Http\Request;
 
@@ -23,9 +24,16 @@ class UserController extends Controller
         return view('user.jadwal-sholat');
     }
 
-    public function artikel()
+    public function indexArtikel()
     {
-        return view('user.artikel');
+        $articles = Artikel::paginate(6);
+        return view('user.artikel', compact('articles'));
+    }
+
+    public function detailArtikel($id)
+    {
+        $article = Artikel::find($id);
+        return view('user.artikel-detail', compact('article'));
     }
 
     public function galeri()
