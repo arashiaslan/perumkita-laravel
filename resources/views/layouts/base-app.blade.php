@@ -43,6 +43,7 @@
         @include('includes.footer')
     </main>
     @include('includes.script')
+    @yield('scripts')
 </body>
 
 </html>

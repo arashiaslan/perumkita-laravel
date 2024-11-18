@@ -17,19 +17,26 @@
                     <div class="row mb-3">
                         <div class="col">
                             <div class="form-group">
-                                <label for="name" class="form-label">Penulis</label>
-                                <input type="text" class="form-control" name="name" id="name" value="{{ Auth::user()->name }}" disabled>
-                                <input type="hidden" name="writer_name" value="{{ Auth::user()->name }}">
+                                <label for="user-select" class="form-label">Pilih Penulis</label>
+                                <select class="form-control" id="user-select">
+                                    <option value="" disabled selected>Pilih Penulis</option>
+                                    @foreach ($writers as $writer)
+                                        <option value="{{ $writer->email }}" data-name="{{ $writer->name }}">{{ $writer->name }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
+                        
                         <div class="col">
                             <div class="form-group">
                                 <label for="email" class="form-label">Email</label>
-                                <input type="email" class="form-control" name="email" id="email" value="{{ Auth::user()->email }}" disabled>
-                                <input type="hidden" name="writer_email" value="{{ Auth::user()->email }}">
+                                <input type="email" class="form-control" name="writer_email" id="email" value="" readonly>
                             </div>
                         </div>
                     </div>
+                    {{-- Input Nama Penulis(Hidden) --}}
+                    <input type="text" name="writer_name" id="writer_name" value="" hidden>
+
                     <!-- Upload Gambar -->
                     <div class="form-group mb-3">
                         <label for="image" class="form-label">Upload Gambar</label>
@@ -39,6 +46,7 @@
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
+
                     <!-- Title -->
                     <div class="form-group mb-3">
                         <label for="title" class="form-label">Judul</label>
@@ -47,6 +55,7 @@
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
+
                     <!-- Content -->
                     <div class="form-group mb-3">
                         <label for="description" class="form-label">Isi</label>
@@ -55,9 +64,22 @@
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
+
                     <button class="btn btn-primary btn-sm ms-auto" type="submit">Kirim</button>
                 </div>
             </form>
         </div>
     </div>
+@endsection
+
+@section('scripts')
+<script>
+    document.getElementById('user-select').addEventListener('change', function () {
+        const selectedEmail = this.value; // Ambil nilai email dari dropdown
+        const writerName = this.options[this.selectedIndex].getAttribute('data-name'); // Ambil nama penulis
+        
+        document.getElementById('email').value = selectedEmail; // Isi input email
+        document.getElementById('writer_name').value = writerName; // Isi input tersembunyi untuk nama penulis
+    });
+</script>
 @endsection

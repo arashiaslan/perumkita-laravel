@@ -19,15 +19,13 @@
                         <div class="col">
                             <div class="form-group">
                                 <label for="name" class="form-label">Penulis</label>
-                                <input type="text" class="form-control" name="name" id="name" value="{{ Auth::user()->name }}" disabled>
-                                <input type="hidden" name="writer_name" value="{{ $article->writer_name ?? Auth::user()->name }}">
+                                <input type="text" class="form-control" name="name" id="name" value="{{ $article->writer_name }}" disabled>
                             </div>
                         </div>
                         <div class="col">
                             <div class="form-group">
                                 <label for="email" class="form-label">Email</label>
-                                <input type="email" class="form-control" name="email" id="email" value="{{ Auth::user()->email }}" disabled>
-                                <input type="hidden" name="writer_email" value="{{ $article->writer_email ?? Auth::user()->email }}">
+                                <input type="email" class="form-control" name="email" id="email" value="{{ $article->writer_email }}" disabled>
                             </div>
                         </div>
                     </div>

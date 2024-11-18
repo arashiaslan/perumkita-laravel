@@ -99,7 +99,8 @@ class AdminController extends Controller
 
     public function addArtikel()
     {
-        return view('admin.artikel-add');
+        $writers = User::all();
+        return view('admin.artikel-add', compact('writers'));
     }
 
     public function storeArtikel(Request $request)
