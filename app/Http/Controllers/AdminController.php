@@ -138,11 +138,24 @@ class AdminController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'content' => 'required|string',
+            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         $article = Artikel::findOrFail($id);
         $article->title = $request->title;
         $article->content = $request->content;
+        if ($request->hasFile('image')) {
+            $imageName = time() . '.' . $request->image->extension();
+            $request->image->move(public_path('images/article'), $imageName);
+    
+            // Hapus gambar lama
+            if (file_exists(public_path($article->image))) {
+                unlink(public_path($article->image));
+            }
+    
+            $article->image = 'images/article/' . $imageName;
+        }
+        
         $article->save();
 
         return redirect()->route('admin.artikel.index')->with('success', 'Artikel berhasil diperbarui.');

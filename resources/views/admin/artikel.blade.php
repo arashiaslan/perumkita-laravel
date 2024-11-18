@@ -40,7 +40,7 @@
                                         <tr>
                                             <td>
                                                 <div class="d-flex align-items-center justify-content-center">
-                                                    <h6 class="mb-0 text-sm">{{ $article->id }}</h6>
+                                                    <h6 class="mb-0 text-sm">{{ $loop->iteration }}</h6>
                                                 </div>
                                             </td>
                                             <td>

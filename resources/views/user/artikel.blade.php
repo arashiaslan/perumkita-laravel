@@ -15,13 +15,13 @@
                             <div class="card-body px-1 pt-3">
                                 <p class="text-gradient text-primary mb-2 text-sm">
                                     {{ $article->user?->name ?? ($article->writer_name ?? 'Tidak ada nama penulis') }}</p>
-                                <a href="javascript:;">
+                                <a href="{{ route('user.artikel.detail', $article->id) }}" style="text-decoration: none;">
                                     <h5>
                                         {{ $article->title }}
                                     </h5>
                                 </a>
                                 <p>
-                                    {{ $article->content }}
+                                    {{ Str::limit($article->content, 150, '...') }}
                                 </p>
                                 <button type="button" class="btn btn-outline-primary btn-sm">
                                     <a href="{{ route('user.artikel.detail', $article->id) }}">Baca Artikel</a>
