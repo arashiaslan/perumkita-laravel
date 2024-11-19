@@ -1,7 +1,8 @@
 @extends('layouts.base-app')
 @section('content')
-    <div class="card shadow-lg mx-4 card-profile-bottom">
-        <div class="container-fluid py-4">
+    <div class="card shadow-lg mx-4">
+        <div class="container-fluid p-4">
+            <h1 class="text-center m-5">Artikel Perumahan</h1>
             <div class="row">
                 @foreach ($articles as $article)
                     <div class="col-md-4 mt-4">

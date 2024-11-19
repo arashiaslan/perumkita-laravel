@@ -1,6 +1,6 @@
 @extends('layouts.base-app')
 @section('content')
-    <div class="card shadow-lg mx-4 card-profile-bottom">
+    <div class="card shadow-lg mx-4">
         <div class="container-fluid py-4">
             <div class="card card-blog card-plain m-4">
                 <div class="position-relative">

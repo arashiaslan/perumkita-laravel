@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Menu;
 use App\Models\User;
+use App\Models\Order;
 use App\Models\Artikel;
 use App\Models\Complaint;
 use Illuminate\Http\Request;
@@ -170,7 +172,24 @@ class AdminController extends Controller
 
     public function indexKantin()
     {
-        return view('admin.kantin');
+        $menus = Menu::paginate(10);
+        return view('admin.kantin', compact('menus'));
+    }
+
+    public function orderKantin()
+    {
+        $orders = Order::with(['user', 'menu'])->get();
+        return view('admin.kantin-pesanan', compact('orders'));
+    }
+
+    public function updateOrder(Request $request, Order $order)
+    {
+        $request->validate([
+            'status' => 'required|in:pending,dibuat,dikirim,diterima','selesai',
+        ]);
+
+        $order->update(['status' => $request->status]);
+        return redirect()->route('admin.canteen.orders')->with('success', 'Status pesanan berhasil diperbarui.');
     }
 
     public function indexGaleri()

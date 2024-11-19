@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Menu;
+use App\Models\Order;
 use App\Models\Artikel;
 use App\Models\Complaint;
 use Illuminate\Http\Request;
@@ -71,5 +73,38 @@ class UserController extends Controller
     {
         $complaints = Complaint::where('user_id', auth()->id())->get();
         return view('user.riwayat-pengaduan', compact('complaints'));
+    }
+
+    public function indexKantin()
+    {
+        $menus = Menu::all();
+        return view('user.kantin', compact('menus'));
+    }
+
+    public function menuKantin($id)
+    {
+        $menu = Menu::find($id);
+        return view('user.kantin-menu', compact('menu'));
+    }
+
+    public function orderKantin(Request $request)
+    {
+        $request->validate([
+            'menu_id' => 'required|exists:menus,id',
+            'quantity' => 'required|integer|min:1',
+        ]);
+
+        $menu = Menu::find($request->menu_id);
+        $totalPrice = $menu->price * $request->quantity;
+
+        Order::create([
+            'user_id' => auth()->id(),
+            'menu_id' => $menu->id,
+            'quantity' => $request->quantity,
+            'total_price' => $totalPrice,
+            'status' => 'pending',
+        ]);
+
+        return redirect()->route('user.kantin')->with('success', 'Pesanan berhasil dibuat.');
     }
 }

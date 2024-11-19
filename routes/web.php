@@ -24,11 +24,13 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/artikel/{id}', [UserController::class, 'detailArtikel'])->name('user.artikel.detail');
     Route::get('/galeri', [UserController::class, 'galeri'])->name('user.galeri');
 
-    Route::get('/kantin', [UserController::class, 'kantin'])->name('user.kantin');
-
     Route::get('/pengaduan', [UserController::class, 'pengaduan'])->name('user.pengaduan');
     Route::post('/pengaduan', [UserController::class, 'storePengaduan'])->name('user.pengaduan.store');
     Route::get('/riwayat-pengaduan', [UserController::class, 'historyPengaduan'])->name('user.pengaduan.history');
+
+    Route::get('/kantin', [UserController::class, 'indexKantin'])->name('user.kantin');
+    Route::get('/kantin/{id}', [UserController::class, 'menuKantin'])->name('user.kantin.menu');
+    Route::post('/kantin/order', [UserController::class, 'orderKantin'])->name('user.kantin.order');
 });
 
 Route::middleware(['auth',AuthAdmin::class])->group(function () {
@@ -52,5 +54,8 @@ Route::middleware(['auth',AuthAdmin::class])->group(function () {
     Route::delete('/admin/artikel/delete/{id}', [AdminController::class, 'deleteArtikel'])->name('admin.artikel.delete');
 
     Route::get('/admin/galeri', [AdminController::class, 'indexGaleri'])->name('admin.galeri.index');
+
     Route::get('/admin/kantin', [AdminController::class, 'indexKantin'])->name('admin.kantin.index');
+    Route::get('/admin/kantin/order', [AdminController::class, 'orderKantin'])->name('admin.kantin.order');
+    Route::put('/admin/kantin/order/{id}', [AdminController::class, 'updateOrder'])->name('admin.order.update');
 });
