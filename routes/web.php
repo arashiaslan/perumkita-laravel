@@ -56,6 +56,11 @@ Route::middleware(['auth',AuthAdmin::class])->group(function () {
     Route::get('/admin/galeri', [AdminController::class, 'indexGaleri'])->name('admin.galeri.index');
 
     Route::get('/admin/kantin', [AdminController::class, 'indexKantin'])->name('admin.kantin.index');
+    Route::get('/admin/kantin/add', [AdminController::class, 'addMenu'])->name('admin.kantin.add');
+    Route::post('/admin/kantin', [AdminController::class, 'storeMenu'])->name('admin.kantin.store');
+    Route::get('/admin/kantin/{id}/edit', [AdminController::class, 'editMenu'])->name('admin.kantin.edit');
+    Route::put('/admin/kantin/{id}', [AdminController::class, 'updateMenu'])->name('admin.kantin.update');
+    Route::delete('/admin/kantin/delete/{id}', [AdminController::class, 'deleteMenu'])->name('admin.kantin.delete');
     Route::get('/admin/kantin/order', [AdminController::class, 'orderKantin'])->name('admin.kantin.order');
     Route::put('/admin/kantin/order/{id}', [AdminController::class, 'updateOrder'])->name('admin.order.update');
 });

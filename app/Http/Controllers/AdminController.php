@@ -176,6 +176,72 @@ class AdminController extends Controller
         return view('admin.kantin', compact('menus'));
     }
 
+    public function addMenu()
+    {
+        return view('admin.kantin-add');
+    }
+
+    public function storeMenu(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'price' => 'required|numeric',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+        // Upload gambar
+        $imageName = time() . '.' . $request->image->extension();
+        $request->image->move(public_path('images/menu'), $imageName);
+
+        // Simpan artikel ke database
+        Menu::create([
+            'name' => $request->name,
+            'price' => $request->price,
+            'image' => 'images/menu/' . $imageName,
+        ]);
+
+        return redirect()->route('admin.kantin.index')->with('success', 'Menu berhasil ditambahkan.');
+    }
+
+    public function editMenu($id)
+    {
+        $menu = Menu::findOrFail($id);
+        return view('admin.kantin-edit', compact('menu'));
+    }
+
+    public function updateMenu(Request $request, $id)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'price' => 'required|numeric',
+            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+        $menu = Menu::findOrFail($id);
+        $menu->name = $request->name;
+        $menu->price = $request->price;
+        if ($request->hasFile('image')) {
+            $imageName = time() . '.' . $request->image->extension();
+            $request->image->move(public_path('images/menu'), $imageName);
+    
+            // Hapus gambar lama
+            if (file_exists(public_path($menu->image))) {
+                unlink(public_path($menu->image));
+            }
+    
+            $menu->image = 'images/menu/' . $imageName;
+        }
+        
+        $menu->save();
+
+        return redirect()->route('admin.kantin.index')->with('success', 'Menu berhasil diperbarui.');
+    }
+
+    public function deleteMenu($id) {
+        $menu = Menu::findOrFail($id);
+        $menu->delete();
+        return redirect()->route('admin.kantin.index')->with('success', 'Menu berhasil dihapus.');
+    }
     public function orderKantin()
     {
         $orders = Order::with(['user', 'menu'])->get();
@@ -185,7 +251,7 @@ class AdminController extends Controller
     public function updateOrder(Request $request, Order $order)
     {
         $request->validate([
-            'status' => 'required|in:pending,dibuat,dikirim,diterima','selesai',
+            'status' => 'required|in:pending, dibuat, dikirim, diterima, selesai',
         ]);
 
         $order->update(['status' => $request->status]);
