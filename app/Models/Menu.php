@@ -16,8 +16,6 @@ class Menu extends Model
     ];
     public function orders()
     {
-        return $this->belongsToMany(Order::class)
-            ->withPivot('quantity', 'total_price') // Pivot untuk menyimpan jumlah dan total harga tiap menu
-            ->withTimestamps();
+        return $this->hasMany(Order::class);
     }
 }

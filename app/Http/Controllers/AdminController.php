@@ -150,21 +150,22 @@ class AdminController extends Controller
         if ($request->hasFile('image')) {
             $imageName = time() . '.' . $request->image->extension();
             $request->image->move(public_path('images/article'), $imageName);
-    
+
             // Hapus gambar lama
             if (file_exists(public_path($article->image))) {
                 unlink(public_path($article->image));
             }
-    
+
             $article->image = 'images/article/' . $imageName;
         }
-        
+
         $article->save();
 
         return redirect()->route('admin.artikel.index')->with('success', 'Artikel berhasil diperbarui.');
     }
 
-    public function deleteArtikel($id) {
+    public function deleteArtikel($id)
+    {
         $article = Artikel::findOrFail($id);
         $article->delete();
         return redirect()->route('admin.artikel.index')->with('success', 'Artikel berhasil dihapus.');
@@ -223,39 +224,30 @@ class AdminController extends Controller
         if ($request->hasFile('image')) {
             $imageName = time() . '.' . $request->image->extension();
             $request->image->move(public_path('images/menu'), $imageName);
-    
+
             // Hapus gambar lama
             if (file_exists(public_path($menu->image))) {
                 unlink(public_path($menu->image));
             }
-    
+
             $menu->image = 'images/menu/' . $imageName;
         }
-        
+
         $menu->save();
 
         return redirect()->route('admin.kantin.index')->with('success', 'Menu berhasil diperbarui.');
     }
 
-    public function deleteMenu($id) {
+    public function deleteMenu($id)
+    {
         $menu = Menu::findOrFail($id);
         $menu->delete();
         return redirect()->route('admin.kantin.index')->with('success', 'Menu berhasil dihapus.');
     }
     public function orderKantin()
     {
-        $orders = Order::with(['user', 'menu'])->get();
+        $orders = Order::with(['user', 'menu'])->paginate(10);
         return view('admin.kantin-pesanan', compact('orders'));
-    }
-
-    public function updateOrder(Request $request, Order $order)
-    {
-        $request->validate([
-            'status' => 'required|in:pending, dibuat, dikirim, diterima, selesai',
-        ]);
-
-        $order->update(['status' => $request->status]);
-        return redirect()->route('admin.canteen.orders')->with('success', 'Status pesanan berhasil diperbarui.');
     }
 
     public function indexGaleri()

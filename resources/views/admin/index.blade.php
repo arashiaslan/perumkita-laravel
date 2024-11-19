@@ -10,7 +10,7 @@
                                 <div class="numbers">
                                     <p class="text-sm mb-0 text-uppercase font-weight-bold">Total Kas Warga</p>
                                     <h5 class="font-weight-bolder">
-                                        Rp. 5.0000.000
+                                        Rp.{{ number_format(\App\Models\Order::where('status', 'Selesai')->sum('total_price')) }}
                                     </h5>
                                 </div>
                             </div>
@@ -73,7 +73,7 @@
                                 <div class="numbers">
                                     <p class="text-sm mb-0 text-uppercase font-weight-bold">Pesanan Kantin</p>
                                     <h5 class="font-weight-bolder">
-                                        9
+                                        {{ \App\Models\Order::count() }}
                                     </h5>
                                 </div>
                             </div>

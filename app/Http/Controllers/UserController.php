@@ -43,11 +43,6 @@ class UserController extends Controller
         return view('user.galeri');
     }
 
-    public function kantin()
-    {
-        return view('user.kantin');
-    }
-
     public function pengaduan()
     {
         return view('user.pengaduan');
@@ -66,7 +61,7 @@ class UserController extends Controller
             'user_id' => auth()->id(), // Set user_id jika pengguna login
         ]);
 
-        return redirect()->route('user.pengaduan')->with('success', 'Complaint added successfully');
+        return redirect()->route('user.pengaduan')->with('success', 'Pengaduan berhasil dikirim.');
     }
 
     public function historyPengaduan()
@@ -77,7 +72,7 @@ class UserController extends Controller
 
     public function indexKantin()
     {
-        $menus = Menu::all();
+        $menus = Menu::paginate(6);
         return view('user.kantin', compact('menus'));
     }
 

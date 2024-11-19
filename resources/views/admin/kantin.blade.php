@@ -42,7 +42,7 @@
                                             </td>
                                             <td class="align-middle text-center">
                                                 <span
-                                                    class="text-secondary text-xs font-weight-bold">Rp.{{ $menu->price }}</span>
+                                                    class="text-secondary text-xs font-weight-bold">Rp.{{ number_format($menu->price) }}</span>
                                             </td>
                                             <td class="align-middle text-center">
                                                 <img src="{{ asset($menu->image) }}" class="avatar avatar-sm me-3"

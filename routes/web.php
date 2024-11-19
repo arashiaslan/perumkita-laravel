@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ComplaintController;
 
 Route::get('/', [App\Http\Controllers\LandingController::class, 'index'])->name('landing.index');
@@ -62,5 +63,6 @@ Route::middleware(['auth',AuthAdmin::class])->group(function () {
     Route::put('/admin/kantin/{id}', [AdminController::class, 'updateMenu'])->name('admin.kantin.update');
     Route::delete('/admin/kantin/delete/{id}', [AdminController::class, 'deleteMenu'])->name('admin.kantin.delete');
     Route::get('/admin/kantin/order', [AdminController::class, 'orderKantin'])->name('admin.kantin.order');
-    Route::put('/admin/kantin/order/{id}', [AdminController::class, 'updateOrder'])->name('admin.order.update');
+    Route::put('/admin/orders/{order}', [OrderController::class, 'updateOrder'])->name('admin.order.update');
 });
+
