@@ -2,6 +2,11 @@
 @section('content')
     <div class="card shadow-lg mx-4 card-profile-bottom">
         <div class="container-fluid py-4">
+            @if (session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
             <div class="row">
                 <div class="col-md-4">
                     <div class="card card-profile">

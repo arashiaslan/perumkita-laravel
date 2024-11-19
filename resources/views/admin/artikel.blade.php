@@ -1,12 +1,27 @@
 @extends('layouts.base-app')
 @section('content')
     <div class="container-fluid py-4">
+        @if (session('success'))
+            <div class="alert alert-primary">
+                {{ session('success') }}
+            </div>
+        @endif
+        @if (session('primary'))
+            <div class="alert alert-primary">
+                {{ session('primary') }}
+            </div>
+        @endif
+        @if (session('danger'))
+            <div class="alert alert-danger">
+                {{ session('danger') }}
+            </div>
+        @endif
         <div class="row">
             <div class="col-12">
                 <div class="card mb-4">
                     <div class="card-header pb-0 d-flex justify-content-between align-items-center">
                         <h6>Artikel Perumahan</h6>
-                        <a href="{{route('admin.artikel.add')}}" class="btn btn-primary text-xxs">Tambah Artikel</a>
+                        <a href="{{ route('admin.artikel.add') }}" class="btn btn-primary text-xxs">Tambah Artikel</a>
                     </div>
                     <div class="card-body px-0 pt-0 pb-2">
                         @if (Session::has('status'))
@@ -57,19 +72,22 @@
                                             </td>
                                             <td class="align-middle text-center">
                                                 <span
-                                                    class="text-secondary text-xs font-weight-bold">{{$article->user?->name ?? $article->writer_name ?? 'Tidak ada nama penulis'}}</span>
+                                                    class="text-secondary text-xs font-weight-bold">{{ $article->user?->name ?? ($article->writer_name ?? 'Tidak ada nama penulis') }}</span>
                                             </td>
                                             <td class="align-middle text-center">
                                                 <span
                                                     class="text-secondary text-xs font-weight-bold">{{ $article->created_at }}</span>
                                             </td>
                                             <td class="align-middle">
-                                                <a href="{{ route('admin.artikel.edit', $article->id) }}" class="text-secondary font-weight-bold text-xs"
-                                                    data-toggle="tooltip" data-original-title="Edit artikel">
+                                                <a href="{{ route('admin.artikel.edit', $article->id) }}"
+                                                    class="text-secondary font-weight-bold text-xs" data-toggle="tooltip"
+                                                    data-original-title="Edit artikel">
                                                     EDIT
                                                 </a>
                                                 |
-                                                <form id="delete-form-{{ $article->id }}" action="{{route('admin.artikel.delete', $article->id)}}" method="post" style="display: inline">
+                                                <form id="delete-form-{{ $article->id }}"
+                                                    action="{{ route('admin.artikel.delete', $article->id) }}"
+                                                    method="post" style="display: inline">
                                                     @csrf
                                                     @method('DELETE')
                                                     <a href="javascript:void(0)"

@@ -66,7 +66,7 @@ class AdminController extends Controller
     public function deleteWarga($id)
     {
         User::findOrFail($id)->delete();
-        return redirect()->route('admin.user.data')->with('success', 'User deleted successfully');
+        return redirect()->route('admin.user.data')->with('danger', 'User deleted successfully');
     }
 
     public function indexComplaint()
@@ -127,7 +127,7 @@ class AdminController extends Controller
             'writer_email' => $request->writer_email,
         ]);
 
-        return redirect()->route('admin.artikel.index')->with('success', 'Artikel berhasil ditambahkan.');
+        return redirect()->route('admin.artikel.index')->with('primary', 'Artikel berhasil ditambahkan.');
     }
 
     public function editArtikel($id)
@@ -168,7 +168,7 @@ class AdminController extends Controller
     {
         $article = Artikel::findOrFail($id);
         $article->delete();
-        return redirect()->route('admin.artikel.index')->with('success', 'Artikel berhasil dihapus.');
+        return redirect()->route('admin.artikel.index')->with('danger', 'Artikel berhasil dihapus.');
     }
 
     public function indexKantin()

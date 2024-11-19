@@ -2,6 +2,11 @@
 @section('content')
     <div class="card shadow-lg mx-4 card-profile-bottom">
         <div class="container-fluid py-4">
+            @if (session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
                 <form action="{{ route('user.pengaduan.store') }}" method="POST" enctype="multipart/form-data" class="">
                     @csrf
                     <div class="card-header pb-0">
