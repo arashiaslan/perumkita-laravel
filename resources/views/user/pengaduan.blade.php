@@ -11,7 +11,7 @@
                     @csrf
                     <div class="card-header pb-0">
                         <div class="d-flex align-items-center">
-                            <h2 class="my-3">Buat Pengaduan</h2>
+                            <h1 class="my-3">Buat Pengaduan</h1>
                             <button class="btn btn-primary btn-sm ms-auto" type="submit">Kirim</button>
                         </div>
                     </div>

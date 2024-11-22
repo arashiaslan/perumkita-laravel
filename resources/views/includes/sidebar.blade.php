@@ -22,7 +22,7 @@
                 <a class="nav-link " href="{{ route('landing.index') }}">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="fa fa-home text-dark text-sm opacity-10"></i>
+                        <i class="fa fa-home text-dark text-lg opacity-10"></i>
                     </div>
                     <span class="nav-link-text ms-1">Home</span>
                 </a>
@@ -34,7 +34,7 @@
                     <a class="nav-link" href="{{ route('admin.user.data') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="ni ni-tv-2 text-dark text-sm opacity-10"></i>
+                            <i class="fa fa-user-circle-o text-dark text-lg opacity-10"></i>
                         </div>
                         <span class="nav-link-text ms-1">Data Warga</span>
                     </a>
@@ -43,9 +43,9 @@
                     <a class="nav-link " href="{{ route('admin.complaints.index') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="ni ni-calendar-grid-58 text-dark text-sm opacity-10"></i>
+                            <i class="fa fa-exclamation-circle text-dark text-lg opacity-10"></i>
                         </div>
-                        <span class="nav-link-text ms-1">Pengaduan</span>
+                        <span class="nav-link-text ms-1">Pengaduan Warga</span>
                     </a>
                 </li>
                 <li class="nav-item mt-3">
@@ -55,7 +55,7 @@
                     <a class="nav-link " href="{{ route('admin.artikel.index') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="ni ni-single-copy-04 text-dark text-sm opacity-10"></i>
+                            <i class="fa fa-pencil-square-o text-dark text-lg opacity-10"></i>
                         </div>
                         <span class="nav-link-text ms-1">Kelola Artikel</span>
                     </a>
@@ -65,7 +65,7 @@
                     <a class="nav-link " href="{{ route('admin.kantin.index') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="ni ni-single-copy-04 text-dark text-sm opacity-10"></i>
+                            <i class="fa fa-cutlery text-dark text-lg opacity-10"></i>
                         </div>
                         <span class="nav-link-text ms-1">Kelola Kantin</span>
                     </a>
@@ -74,7 +74,7 @@
                     <a class="nav-link " href="{{ route('admin.kantin.order') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="ni ni-single-copy-04 text-dark text-sm opacity-10"></i>
+                            <i class="fa fa-cart-arrow-down text-dark text-lg opacity-10"></i>
                         </div>
                         <span class="nav-link-text ms-1">Order Kantin</span>
                     </a>
@@ -83,7 +83,7 @@
                     <a class="nav-link " href="{{ route('admin.galeri.index') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="ni ni-collection text-dark text-sm opacity-10"></i>
+                            <i class="fa fa-camera-retro text-dark text-lg opacity-10"></i>
                         </div>
                         <span class="nav-link-text ms-1">Kelola Galeri</span>
                     </a>
@@ -121,7 +121,7 @@
                     <a class="nav-link " href="{{ route('landing.index') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="fa fa-home text-dark text-sm opacity-10"></i>
+                            <i class="fa fa-home text-dark text-lg opacity-10"></i>
                         </div>
                         <span class="nav-link-text ms-1">Home</span>
                     </a>
@@ -142,7 +142,7 @@
                     <a class="nav-link " href="{{ route('user.artikel') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="ni ni-single-copy-04 text-dark text-sm opacity-10"></i>
+                            <i class="fa fa-pencil-square-o text-dark text-lg opacity-10"></i>
                         </div>
                         <span class="nav-link-text ms-1">Artikel</span>
                     </a>
@@ -151,7 +151,7 @@
                     <a class="nav-link " href="{{ route('user.galeri') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="ni ni-collection text-dark text-sm opacity-10"></i>
+                            <i class="fa fa-camera-retro text-dark text-lg opacity-10"></i>
                         </div>
                         <span class="nav-link-text ms-1">Galeri Desa</span>
                     </a>
@@ -163,7 +163,7 @@
                     <a class="nav-link" href="{{ route('user.kantin') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="ni ni-tv-2 text-dark text-sm opacity-10"></i>
+                            <i class="fa fa-cutlery text-dark text-lg opacity-10"></i>
                         </div>
                         <span class="nav-link-text ms-1">Menu Kantin</span>
                     </a>
@@ -172,7 +172,7 @@
                     <a class="nav-link " href="">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="ni ni-calendar-grid-58 text-dark text-sm opacity-10"></i>
+                            <i class="fa fa-shopping-cart text-dark text-lg opacity-10"></i>
                         </div>
                         <span class="nav-link-text ms-1">Pesanan Saya</span>
                     </a>
@@ -184,7 +184,7 @@
                     <a class="nav-link" href="{{ route('user.pengaduan') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="ni ni-tv-2 text-dark text-sm opacity-10"></i>
+                            <i class="fa fa-exclamation-circle text-dark text-lg opacity-10"></i>
                         </div>
                         <span class="nav-link-text ms-1">Buat Pengaduan</span>
                     </a>
@@ -193,7 +193,7 @@
                     <a class="nav-link " href="{{ route('user.pengaduan.history') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="ni ni-calendar-grid-58 text-dark text-sm opacity-10"></i>
+                            <i class="fa fa-history text-dark text-lg opacity-10"></i>
                         </div>
                         <span class="nav-link-text ms-1">Riwayat Pengaduan</span>
                     </a>

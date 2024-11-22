@@ -75,13 +75,13 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="example-text-input" class="form-control-label">Name</label>
-                                    <input class="form-control" type="text" name="name" value="{{ old('name', $user->name) }}" required>
+                                    <input class="form-control" type="text" name="name" value="{{ old('name', $user->name) }}" disabled>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="example-text-input" class="form-control-label">Email address</label>
-                                    <input class="form-control" type="email" name="email" value="{{ old('email', $user->email) }}" required>
+                                    <input class="form-control" type="email" name="email" value="{{ old('email', $user->email) }}" disabled>
                                 </div>
                             </div>
                         </div>
@@ -92,25 +92,25 @@
                                 <div class="form-group">
                                     <label for="example-text-input" class="form-control-label">Address</label>
                                     <input class="form-control" type="text"
-                                        value="Jl. Raya Harapan Indah, No. 32">
+                                        value="Jl. Raya Harapan Indah, No. 32" disabled>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="example-text-input" class="form-control-label">City</label>
-                                    <input class="form-control" type="text" value="Jakarta">
+                                    <input class="form-control" type="text" value="Jakarta" disabled>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="example-text-input" class="form-control-label">Country</label>
-                                    <input class="form-control" type="text" value="Indonesia">
+                                    <input class="form-control" type="text" value="Indonesia" disabled>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="example-text-input" class="form-control-label">Postal code</label>
-                                    <input class="form-control" type="text" value="92716">
+                                    <input class="form-control" type="text" value="92716" disabled>
                                 </div>
                             </div>
                         </div>
@@ -121,7 +121,7 @@
                                 <div class="form-group">
                                     <label for="example-text-input" class="form-control-label">About me</label>
                                     <input class="form-control" type="text"
-                                        value="Seorang Warga yang taat, dan bijaksana. Suka berbagi Nasi Kuning di hari Jumat.">
+                                        value="Seorang Warga yang taat, dan bijaksana. Suka berbagi Nasi Kuning di hari Jumat." disabled>
                                 </div>
                             </div>
                         </div>

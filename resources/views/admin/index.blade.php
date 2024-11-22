@@ -52,7 +52,7 @@
                                 <div class="numbers">
                                     <p class="text-sm mb-0 text-uppercase font-weight-bold">Pengaduan Masuk</p>
                                     <h5 class="font-weight-bolder">
-                                        {{ \App\Models\Complaint::count() }}
+                                        {{ \App\Models\Complaint::where('status', 'Pending')->count() }}
                                     </h5>
                                 </div>
                             </div>
@@ -73,7 +73,7 @@
                                 <div class="numbers">
                                     <p class="text-sm mb-0 text-uppercase font-weight-bold">Pesanan Kantin</p>
                                     <h5 class="font-weight-bolder">
-                                        {{ \App\Models\Order::count() }}
+                                        {{ \App\Models\Order::where('status', 'Pending')->count() }}
                                     </h5>
                                 </div>
                             </div>

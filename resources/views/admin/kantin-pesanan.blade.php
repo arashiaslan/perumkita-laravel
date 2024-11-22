@@ -55,13 +55,13 @@
                                             <td class="align-middle text-center">
                                                 <span class="text-secondary text-xs font-weight-bold">{{ $order->created_at }}</span>
                                             </td>
-                                            <td class="align-middle">
-                                                <form action="{{ route('admin.order.update', $order->id) }}" method="POST">
+                                            <td class="align-middle text-center">
+                                                <form action="{{ route('admin.order.update', $order->id) }}" method="POST" class="d-flex flex-column align-items-center justify-content-center">
                                                     @csrf
                                                     @method('PUT')
-                                                    <div class="form-group">
+                                                    <div class="form-group text-center w-50 mb-2">
                                                         <label for="status">Status</label>
-                                                        <select name="status" id="status" class="form-control form-control-sm w-40" required>
+                                                        <select name="status" id="status" class="form-control form-control-sm" required>
                                                             <option value="pending" {{ $order->status == 'pending' ? 'selected' : '' }}>Pending</option>
                                                             <option value="dibuat" {{ $order->status == 'dibuat' ? 'selected' : '' }}>Dibuat</option>
                                                             <option value="dikirim" {{ $order->status == 'dikirim' ? 'selected' : '' }}>Dikirim</option>
@@ -69,9 +69,9 @@
                                                             <option value="selesai" {{ $order->status == 'selesai' ? 'selected' : '' }}>Selesai</option>
                                                         </select>
                                                     </div>
-                                                    <button type="submit" class="align-middle btn btn-primary btn-sm w-40">Update</button>
+                                                    <button type="submit" class="btn btn-primary btn-sm w-50 mt-0">Update</button>
                                                 </form>
-                                            </td>
+                                            </td>                                            
                                         </tr>
                                     @endforeach
                                 </tbody>

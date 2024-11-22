@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
+    //Manage Admin
     public function index()
     {
         return view('admin.index');
@@ -36,6 +37,7 @@ class AdminController extends Controller
         return redirect()->route('admin.profile')->with('success', 'Profile updated successfully');
     }
 
+    //Manage Warga
     public function userData()
     {
         $users = User::where('role', 'user')->paginate(10);
@@ -69,9 +71,10 @@ class AdminController extends Controller
         return redirect()->route('admin.user.data')->with('danger', 'User deleted successfully');
     }
 
+    //Manage Complaint
     public function indexComplaint()
     {
-        $complaints = Complaint::paginate(5);
+        $complaints = Complaint::orderByRaw("FIELD(status, 'pending', 'proses', 'selesai')")->orderBy('created_at', 'desc')->paginate(5);
         return view('admin.complaint', compact('complaints'));
     }
 
@@ -93,6 +96,7 @@ class AdminController extends Controller
         return redirect()->route('admin.complaints.index')->with('success', 'Status berhasil diperbarui');
     }
 
+    //Manage Artikel
     public function indexArtikel()
     {
         $articles = Artikel::paginate(10);
@@ -171,6 +175,7 @@ class AdminController extends Controller
         return redirect()->route('admin.artikel.index')->with('danger', 'Artikel berhasil dihapus.');
     }
 
+    //Manage Kantin
     public function indexKantin()
     {
         $menus = Menu::paginate(10);
@@ -246,10 +251,11 @@ class AdminController extends Controller
     }
     public function orderKantin()
     {
-        $orders = Order::with(['user', 'menu'])->paginate(10);
+        $orders = Order::with(['user', 'menu'])->orderByRaw("FIELD(status, 'pending', 'dibuat', 'dikirim', 'diterima', 'selesai')")->orderBy('created_at', 'desc')->paginate(10);
         return view('admin.kantin-pesanan', compact('orders'));
     }
 
+    //Manage Galeri
     public function indexGaleri()
     {
         return view('admin.galeri');
