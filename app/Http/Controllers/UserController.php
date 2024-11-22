@@ -76,12 +76,6 @@ class UserController extends Controller
         return view('user.kantin', compact('menus'));
     }
 
-    public function menuKantin($id)
-    {
-        $menu = Menu::find($id);
-        return view('user.kantin-menu', compact('menu'));
-    }
-
     public function orderKantin(Request $request)
     {
         $request->validate([
@@ -101,5 +95,11 @@ class UserController extends Controller
         ]);
 
         return redirect()->route('user.kantin')->with('success', 'Pesanan berhasil dibuat.');
+    }
+
+    public function myOrderKantin()
+    {
+        $orders = Order::where('user_id', auth()->id())->get();
+        return view('user.kantin-pesanan', compact('orders'));
     }
 }

@@ -30,8 +30,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/riwayat-pengaduan', [UserController::class, 'historyPengaduan'])->name('user.pengaduan.history');
 
     Route::get('/kantin', [UserController::class, 'indexKantin'])->name('user.kantin');
-    Route::get('/kantin/{id}', [UserController::class, 'menuKantin'])->name('user.kantin.menu');
     Route::post('/kantin/order', [UserController::class, 'orderKantin'])->name('user.kantin.order');
+    Route::get('/kantin/my-order', [UserController::class, 'myOrderKantin'])->name('user.kantin.myorder');
 });
 
 Route::middleware(['auth',AuthAdmin::class])->group(function () {
