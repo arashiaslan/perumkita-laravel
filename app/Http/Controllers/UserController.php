@@ -99,7 +99,7 @@ class UserController extends Controller
 
     public function myOrderKantin()
     {
-        $orders = Order::where('user_id', auth()->id())->get();
+        $orders = Order::where('user_id', auth()->id())->orderByRaw("FIELD(status, 'pending', 'dibuat', 'dikirim', 'diterima', 'selesai')")->orderBy('created_at', 'desc')->paginate(8);
         return view('user.kantin-pesanan', compact('orders'));
     }
 }
