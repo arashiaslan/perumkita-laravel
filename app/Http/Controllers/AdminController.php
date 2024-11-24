@@ -6,6 +6,7 @@ use App\Models\Menu;
 use App\Models\User;
 use App\Models\Order;
 use App\Models\Artikel;
+use App\Models\Gallery;
 use App\Models\Complaint;
 use Illuminate\Http\Request;
 
@@ -258,6 +259,73 @@ class AdminController extends Controller
     //Manage Galeri
     public function indexGaleri()
     {
-        return view('admin.galeri');
+        $galleries = Gallery::paginate(10);
+        return view('admin.galeri', compact('galleries'));
+    }
+
+    public function addGaleri()
+    {
+        $today = now()->toDateString();
+        return view('admin.galeri-add', compact('today'));
+    }
+
+    public function storeGaleri(Request $request)
+    {
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+        // Upload gambar
+        $imageName = time() . '.' . $request->image->extension();
+        $request->image->move(public_path('images/galeri'), $imageName);
+
+        // Simpan artikel ke database
+        Gallery::create([
+            'title' => $request->title,
+            'image' => 'images/galeri/' . $imageName,
+        ]);
+
+        return redirect()->route('admin.galeri.index')->with('success', 'Galeri berhasil ditambahkan.');
+    }
+
+    public function editGaleri($id)
+    {
+        $today = now()->toDateString();
+        $gallery = Gallery::findOrFail($id);
+        return view('admin.galeri-edit', compact('gallery', 'today'));
+    }
+
+    public function updateGaleri(Request $request, $id)
+    {
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+        $gallery = Gallery::findOrFail($id);
+        $gallery->title = $request->title;
+        if ($request->hasFile('image')) {
+            $imageName = time() . '.' . $request->image->extension();
+            $request->image->move(public_path('images/galeri'), $imageName);
+
+            // Hapus gambar lama
+            if (file_exists(public_path($gallery->image))) {
+                unlink(public_path($gallery->image));
+            }
+
+            $gallery->image = 'images/galeri/' . $imageName;
+        }
+
+        $gallery->save();
+
+        return redirect()->route('admin.galeri.index')->with('success', 'Galeri berhasil diperbarui.');
+    }   
+
+    public function deleteGaleri($id)
+    {
+        $gallery = Gallery::findOrFail($id);
+        $gallery->delete();
+        return redirect()->route('admin.galeri.index')->with('success', 'Galeri berhasil dihapus.');
     }
 }
