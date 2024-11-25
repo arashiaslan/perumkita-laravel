@@ -26,7 +26,6 @@
                                 </select>
                             </div>
                         </div>
-                        
                         <div class="col">
                             <div class="form-group">
                                 <label for="email" class="form-label">Email</label>

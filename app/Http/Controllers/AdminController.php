@@ -274,6 +274,7 @@ class AdminController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'description' => 'required|string',
         ]);
 
         // Upload gambar
@@ -283,6 +284,7 @@ class AdminController extends Controller
         // Simpan artikel ke database
         Gallery::create([
             'title' => $request->title,
+            'description' => $request->description,
             'image' => 'images/galeri/' . $imageName,
         ]);
 

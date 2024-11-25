@@ -29,6 +29,17 @@
                         <div class="row">
                             <div class="col">
                                 <div class="form-group mb-3">
+                                    <label for="description" class="form-label">Isi</label>
+                                    <textarea class="form-control @error('description') is-invalid @enderror" name="description" id="description" rows="3" placeholder="Tuliskan deskripsi..." required></textarea>
+                                    @error('description')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group mb-3">
                                     <label for="image" class="form-label">Upload Gambar</label>
                                     <input type="file" class="form-control @error('image') is-invalid @enderror" name="image" id="image" accept="image/*" required>
                                     <small class="form-text text-muted">Format yang didukung: JPG, PNG, JPEG (Maks. 2MB).</small>

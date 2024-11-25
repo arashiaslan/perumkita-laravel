@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Menu;
 use App\Models\Order;
 use App\Models\Artikel;
+use App\Models\Gallery;
 use App\Models\Complaint;
 use Illuminate\Http\Request;
 
@@ -40,7 +41,8 @@ class UserController extends Controller
 
     public function galeri()
     {
-        return view('user.galeri');
+        $galeris = Gallery::paginate(9);
+        return view('user.galeri', compact('galeris'));
     }
 
     public function pengaduan()
