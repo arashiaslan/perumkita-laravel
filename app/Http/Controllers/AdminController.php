@@ -15,7 +15,8 @@ class AdminController extends Controller
     //Manage Admin
     public function index()
     {
-        return view('admin.index');
+        $complaints = Complaint::where('status', 'pending')->get();
+        return view('admin.index', compact('complaints'));
     }
     public function profile()
     {

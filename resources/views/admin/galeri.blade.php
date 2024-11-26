@@ -32,7 +32,7 @@
                                         </th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody> 
                                     @foreach ($galleries as $galeri)
                                         <tr>
                                             <td class="text-start ms-3">

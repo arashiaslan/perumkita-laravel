@@ -11,7 +11,7 @@
             <div class="row">
                 @foreach ($menus as $menu)
                     <div class="col-md-4">
-                        <div class="card">
+                        <div class="card mb-4">
                             <div class="card-header p-0 mx-3 mt-3 position-relative z-index-1">
                                 <a href="javascript:;" class="d-block blur-shadow-image">
                                     <img src="{{ asset($menu->image) }}" class="img-fluid border-radius-lg">

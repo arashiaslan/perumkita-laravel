@@ -13,7 +13,8 @@ class UserController extends Controller
 {
     public function index()
     {
-        return view('user.index');
+        $articles = Artikel::paginate(4);
+        return view('user.index', compact('articles'));
     }
 
     public function profile()

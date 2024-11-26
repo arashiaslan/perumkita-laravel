@@ -3,6 +3,7 @@
 @section('content')
     <div class="card shadow-lg mx-4">
         <div class="container-fluid py-4">
+            <h1 class="text-center m-5">Galeri Perumahan</h1>
             <div class="row">
                 @foreach ($galeris as $galeri)
                     <div class="col-lg-4 mb-4">
