@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ComplaintController;
+use App\Http\Controllers\JadwalsholatController;
 
 Route::get('/', [App\Http\Controllers\LandingController::class, 'index'])->name('landing.index');
 Route::get('/about', [App\Http\Controllers\LandingController::class, 'about'])->name('landing.about');
@@ -20,7 +21,7 @@ Route::middleware(['auth'])->group(function () {
     //Manage User
     Route::get('/dashboard', [UserController::class, 'index'])->name('user.index');
     Route::get('/profile', [UserController::class, 'profile'])->name('user.profile');
-    Route::get('/jadwal-sholat', [UserController::class, 'jadwalSholat'])->name('user.jadwal-sholat');
+    Route::get('/jadwal-sholat', [JadwalsholatController::class, 'index'])->name('user.jadwal-sholat');
     //User Artikel
     Route::get('/artikel', [UserController::class, 'indexArtikel'])->name('user.artikel');
     Route::get('/artikel/{id}', [UserController::class, 'detailArtikel'])->name('user.artikel.detail');

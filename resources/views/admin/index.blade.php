@@ -31,7 +31,7 @@
                                 <div class="numbers">
                                     <p class="text-sm mb-0 text-uppercase font-weight-bold">Jumlah Warga</p>
                                     <h5 class="font-weight-bolder">
-                                        {{ \App\Models\User::count() }}
+                                        {{ \App\Models\User::count() }} Kepala Keluarga
                                     </h5>
                                 </div>
                             </div>
@@ -52,7 +52,7 @@
                                 <div class="numbers">
                                     <p class="text-sm mb-0 text-uppercase font-weight-bold">Pengaduan Masuk</p>
                                     <h5 class="font-weight-bolder">
-                                        {{ \App\Models\Complaint::where('status', 'Pending')->count() }}
+                                        {{ \App\Models\Complaint::where('status', 'Pending')->count() }} Pengaduan
                                     </h5>
                                 </div>
                             </div>
@@ -73,7 +73,7 @@
                                 <div class="numbers">
                                     <p class="text-sm mb-0 text-uppercase font-weight-bold">Pesanan Kantin</p>
                                     <h5 class="font-weight-bolder">
-                                        {{ \App\Models\Order::where('status', 'Pending')->count() }}
+                                        {{ \App\Models\Order::where('status', 'Pending')->count() }} Pesanan
                                     </h5>
                                 </div>
                             </div>
@@ -178,11 +178,11 @@
                         <div class="row">
                             @foreach ($complaints as $complaint)
                                 <div class="card my-2">
-                                    <a href="">
+                                    <a href="{{ route('admin.complaints.index') }}">
                                     <div class="card-body pt-3">
                                         <div class="author align-items-center">
                                             <img src="{{asset('images/icon/pengaduan.png')}}" alt="..."
-                                                class="avatar shadow p-2">
+                                                class="img-fluid shadow border-radius-lg w-10 p-2">
                                             <div class="name ps-3">
                                                 <span>{{$complaint->title}}</span>
                                                 <div class="stats">
