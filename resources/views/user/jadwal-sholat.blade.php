@@ -6,7 +6,7 @@
                 <div class="card mb-4">
                     <div class="card-header pt-6 pb-0 text-center">
                         <h1>Jadwal Sholat Hari Ini</h1>
-                        <h5>{{ $timeNow->translatedFormat('d F Y H:i:s') }}</h5>
+                        <h5 id="time-display">{{ $timeNow->translatedFormat('d F Y H:i:s') }}</h5>
                     </div>
                     <div class="card-body px-6 mx-lg-4 mb-3">
                         <div class="table-responsive p-0">
@@ -53,4 +53,29 @@
             </div>
         </div>
     </div>
+@endsection
+@section('scripts')
+<script>
+    function updateTime() {
+        // Buat objek date baru
+        var now = new Date();
+
+        // Format waktu sesuai keinginan Anda
+        var options = { 
+            year: 'numeric', month: 'long', day: 'numeric', 
+            hour: '2-digit', minute: '2-digit', second: '2-digit', 
+            hour12: false 
+        };
+        var formattedTime = now.toLocaleDateString('id-ID', options);
+
+        // Update elemen dengan id "time-display"
+        document.getElementById('time-display').innerHTML = formattedTime;
+    }
+
+    // Update waktu setiap detik
+    setInterval(updateTime, 1000);
+
+    // Inisialisasi waktu saat halaman pertama kali dimuat
+    updateTime();
+</script>
 @endsection

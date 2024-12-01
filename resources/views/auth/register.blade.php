@@ -41,6 +41,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Password" aria-label="Password">
+                                    <p class="text-secondary ms-2" style="font-size: 12px"><i>Password Minimal 8 Karakter</i></p>
                                     @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

@@ -23,6 +23,23 @@ class UserController extends Controller
         return view('user.profile', compact('user'));
     }
 
+    public function updateKeluarga(Request $request)
+    {
+        $request->validate([
+            'jumlah_anak' => 'required|integer|min:0',
+            'jumlah_istri' => 'required|integer|min:0',
+            'no_rumah' => 'required|string',
+        ]);
+
+        $user = auth()->user();
+        $user->jumlah_anak = $request->jumlah_anak;
+        $user->jumlah_istri = $request->jumlah_istri;
+        $user->no_rumah = $request->no_rumah;
+        $user->save();
+
+        return redirect()->route('user.profile')->with('success', 'Profile updated successfully');
+    }
+
     public function jadwalSholat()
     {
         return view('user.jadwal-sholat');

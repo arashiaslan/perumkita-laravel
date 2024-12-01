@@ -21,6 +21,7 @@ Route::middleware(['auth'])->group(function () {
     //Manage User
     Route::get('/dashboard', [UserController::class, 'index'])->name('user.index');
     Route::get('/profile', [UserController::class, 'profile'])->name('user.profile');
+    Route::put('/profile', [UserController::class, 'updateKeluarga'])->name('user.profile.update');
     Route::get('/jadwal-sholat', [JadwalsholatController::class, 'index'])->name('user.jadwal-sholat');
     //User Artikel
     Route::get('/artikel', [UserController::class, 'indexArtikel'])->name('user.artikel');

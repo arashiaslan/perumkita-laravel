@@ -29,11 +29,18 @@ class AdminController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email,' . auth()->id(),
+            'jumlah_anak' => 'required|integer|min:0',
+            'jumlah_istri' => 'required|integer|min:0',
+            'no_rumah' => 'required|string',
         ]);
 
         $admin = auth()->user();
         $admin->name = $request->input('name');
         $admin->email = $request->input('email');
+        $admin->jumlah_anak = $request->input('jumlah_anak');
+        $admin->jumlah_istri = $request->input('jumlah_istri');
+        $admin->no_rumah = $request->input('no_rumah');
+
         $admin->save();
 
         return redirect()->route('admin.profile')->with('success', 'Profile updated successfully');

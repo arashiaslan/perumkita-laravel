@@ -37,15 +37,15 @@
                                 <div class="col">
                                     <div class="d-flex justify-content-center">
                                         <div class="d-grid text-center">
-                                            <span class="text-lg font-weight-bolder">2</span>
+                                            <span class="text-lg font-weight-bolder">{{Auth::user()->jumlah_istri}}</span>
                                             <span class="text-sm opacity-8">Istri</span>
                                         </div>
                                         <div class="d-grid text-center mx-4">
-                                            <span class="text-lg font-weight-bolder">7</span>
+                                            <span class="text-lg font-weight-bolder">{{Auth::user()->jumlah_anak}}</span>
                                             <span class="text-sm opacity-8">Anak</span>
                                         </div>
                                         <div class="d-grid text-center">
-                                            <span class="text-lg font-weight-bolder">2</span>
+                                            <span class="text-lg font-weight-bolder">1</span>
                                             <span class="text-sm opacity-8">Rumah</span>
                                         </div>
                                     </div>
@@ -56,7 +56,7 @@
                                     {{Auth::user()->name}}
                                 </h5>
                                 <div class="h6 font-weight-300">
-                                    <i class="ni location_pin mr-2" id="location"></i>Downtown, Jakarta
+                                    <i class="ni location_pin mr-2" id="location"></i>{{Auth::user()->no_rumah}}
                                 </div>
                                 <div class="h6 mt-4">
                                     <i class="ni business_briefcase-24 mr-2"></i>Housing Leader - Overpower RT
@@ -101,25 +101,25 @@
                                     <div class="form-group">
                                         <label for="example-text-input" class="form-control-label">Address</label>
                                         <input class="form-control" type="text"
-                                            value="Jl. Raya Harapan Indah, No. 32">
+                                            value="Perumahan Makmursgt, Jl. Raya Harapan Asli." disabled>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="example-text-input" class="form-control-label">City</label>
-                                        <input class="form-control" type="text" value="Jakarta">
+                                        <label for="example-text-input" class="form-control-label">Blok Rumah</label>
+                                        <input class="form-control" type="text" name="no_rumah" value="{{ old('no_rumah', Auth::user()->no_rumah) }}" placeholder="Blok Rumah..">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="example-text-input" class="form-control-label">Country</label>
-                                        <input class="form-control" type="text" value="Indonesia">
+                                        <label for="example-text-input" class="form-control-label">Jumlah Istri</label>
+                                        <input class="form-control" type="number" name="jumlah_istri" min="1" max="10" value="{{ old('jumlah_istri', Auth::user()->jumlah_istri) }}" placeholder="Jumlah Istri..">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="example-text-input" class="form-control-label">Postal code</label>
-                                        <input class="form-control" type="text" value="92716">
+                                        <label for="example-text-input" class="form-control-label">Jumlah Anak</label>
+                                        <input class="form-control" type="number" name="jumlah_anak" min="1" max="10" value="{{ old('jumlah_anak', Auth::user()->jumlah_anak) }}" placeholder="Jumlah Anak..">
                                     </div>
                                 </div>
                             </div>

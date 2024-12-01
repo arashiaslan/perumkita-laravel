@@ -61,7 +61,7 @@
                                                     @csrf
                                                     @method('DELETE')
                                                     <a href="javascript:void(0)"
-                                                        onclick="if(confirm('Apakah Anda yakin ingin menghapus artikel ini?')) { document.getElementById('delete-form-{{ $menu->id }}').submit(); }"
+                                                        onclick="if(confirm('Apakah Anda yakin ingin menghapus menu ini?')) { document.getElementById('delete-form-{{ $menu->id }}').submit(); }"
                                                         class="text-secondary font-weight-bold text-xs"
                                                         data-toggle="tooltip" data-original-title="Delete Article">
                                                         HAPUS

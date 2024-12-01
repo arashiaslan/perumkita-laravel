@@ -25,16 +25,16 @@
                                         <h5 class="text-info mb-0">Rp.{{ number_format($menu->price) }}</h5>
                                     </div>
                                 </div>
-                                <form action="{{ route('user.kantin.order') }}" method="post">
-                                    @csrf
-                                    <input type="text" name="user_id" value="{{ Auth::user()->id }}" hidden>
-                                    <input type="hidden" name="menu_id" value="{{ $menu->id }}">
-                                    <div class="d-flex justify-content-center mt-3">
-                                        <button type="submit" class="btn bg-gradient-info">Pesan Menu</button>
-                                        <input type="number" name="quantity" class="form-control ms-2" placeholder="Jumlah"
-                                            min="1" max="10" value="1" style="width: 55px; height: 40px"
-                                            required>
-                                    </div>
+                                <form action="{{ route('user.kantin.order') }}" method="post"
+                                    id="order-form-{{ $menu->id }}"> @csrf <input type="text" name="user_id"
+                                        value="{{ Auth::user()->id }}" hidden> <input type="hidden" name="menu_id"
+                                        value="{{ $menu->id }}">
+                                    <div class="d-flex justify-content-center mt-3"> <button type="button"
+                                            class="btn bg-gradient-info"
+                                            onclick="if(confirm('Hanya menerima pembayaran di tempat, apakah Anda yakin ingin memesan menu ini?')) { document.getElementById('order-form-{{ $menu->id }}').submit(); }">
+                                            Pesan Menu </button> <input type="number" name="quantity"
+                                            class="form-control ms-2" placeholder="Jumlah" min="1" max="10"
+                                            value="1" style="width: 55px; height: 40px" required> </div>
                                 </form>
                             </div>
                         </div>

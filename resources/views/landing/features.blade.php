@@ -1,5 +1,4 @@
 @extends('auth.base-auth')
-
 @section('content')
     <main class="main-content mt-0 ">
         <div class="page-header min-vh-100" style="background-image: url('{{asset('argon/assets/img/landing/landing-bg.jpg')}}'); background-attachment: fixed;">
@@ -23,7 +22,7 @@
                                     <li><strong>Lihat profil pribadi (User):</strong> Penghuni dapat melihat profil pribadi mereka.</li>
                                 </ul>
                                 <h4>2. Jadwal Sholat</h4>
-                                <img src="{{asset('argon/assets/img/landing/fitur.jpg')}}" alt="..." class="img-fluid shadow border-radius-lg my-3 w-50">
+                                <img src="{{asset('images/solat.png')}}" alt="..." class="img-fluid shadow border-radius-lg my-3 w-50">
                                 <p class="card-text">
                                     Fitur ini memungkinkan admin untuk mengelola data penghuni perumahan, termasuk menambah, mengedit, dan menghapus data penghuni, serta melihat informasi pribadi setiap penghuni.
                                 </p>

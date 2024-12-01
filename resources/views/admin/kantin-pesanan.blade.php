@@ -13,7 +13,7 @@
                                 {{ Session::get('status') }}
                             </div>
                         @endif
-                        <div class="table-responsive">
+                        <div class="table-responsive p-0" style="overflow-x: auto;">
                             <table class="table table-fixed align-items-center mb-0" style="table-layout: fixed; width: 100%;">
                                 <thead>
                                     <tr>
@@ -36,7 +36,7 @@
                                                     </div>
                                                     <div class="d-flex flex-column justify-content-center">
                                                         <h6 class="mb-0 text-sm">{{ $order->user->name }}</h6>
-                                                        <p class="text-xs text-secondary mb-0">{{ $order->user->email }}</p>
+                                                        <p class="text-xs text-secondary mb-0">{{ $order->user->no_rumah }}</p>
                                                     </div>
                                                 </div>
                                             </td>
