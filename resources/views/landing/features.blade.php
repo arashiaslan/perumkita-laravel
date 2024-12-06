@@ -68,6 +68,24 @@
                                     <li><strong>Tambah, edit, hapus artikel (Admin):</strong> Admin dapat menambahkan, mengedit, dan menghapus artikel yang dibuat oleh warga maupun admin.</li>
                                     <li><strong>Baca artikel yang dipost oleh admin di halaman Artikel (User, opsional):</strong> Penghuni dapat membaca artikel yang dipost oleh admin di halaman Artikel.</li>
                                 </ul>
+
+                                <h4 class="mt-6 text-center">Insight Data Pengguna Perumahan</h4>
+                                <p class="card-text text-center mb-4">
+                                    Gambaran visual data statistik para pengguna aplikasi, termasuk status pesanan kantin, pengaduan, dan jumlah istri pengguna.
+                                </p>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div id="order-chart" style="width: 100%; height: 400px;"></div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div id="complaint-chart" style="width: 100%; height: 400px;"></div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div id="user-chart" style="width: 100%; height: 400px;"></div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -75,4 +93,75 @@
             </div>
         </div>
     </main>
+@endsection
+
+@section('scripts')
+<script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+
+<script>
+    // Data dari backend
+    const orderCounts = @json($orderCounts); // [pending, dibuat, dikirim, diterima, selesai]
+    const complaintCounts = @json($complaintCounts); // [pending, proses, selesai]
+    const userCounts = @json($userCounts); // [jumlah istri: 1, 2, 3]
+
+    // 1. Chart Pesanan
+    var orderChart = echarts.init(document.getElementById('order-chart'));
+    var orderOption = {
+        title: { text: 'Status Pesanan', left: 'center' },
+        tooltip: { trigger: 'item' },
+        legend: { bottom: 10 },
+        series: [{
+            name: 'Pesanan',
+            type: 'pie',
+            radius: '50%',
+            data: [
+                { value: orderCounts[0], name: 'Pending' },
+                { value: orderCounts[1], name: 'Dibuat' },
+                { value: orderCounts[2], name: 'Dikirim' },
+                { value: orderCounts[3], name: 'Diterima' },
+                { value: orderCounts[4], name: 'Selesai' }
+            ]
+        }]
+    };
+    orderChart.setOption(orderOption);
+
+    // 2. Chart Pengaduan
+    var complaintChart = echarts.init(document.getElementById('complaint-chart'));
+    var complaintOption = {
+        title: { text: 'Status Pengaduan', left: 'center' },
+        tooltip: { trigger: 'item' },
+        legend: { bottom: 10 },
+        series: [{
+            name: 'Pengaduan',
+            type: 'pie',
+            radius: '50%',
+            data: [
+                { value: complaintCounts[0], name: 'Pending' },
+                { value: complaintCounts[1], name: 'Proses' },
+                { value: complaintCounts[2], name: 'Selesai' }
+            ]
+        }]
+    };
+    complaintChart.setOption(complaintOption);
+
+    // 3. Chart Statistik User
+    var userChart = echarts.init(document.getElementById('user-chart'));
+    var userOption = {
+        title: { text: 'Statistik User (Jumlah Istri)', left: 'center' },
+        tooltip: { trigger: 'item' },
+        legend: { bottom: 10 },
+        series: [{
+            name: 'User',
+            type: 'pie',
+            radius: '50%',
+            data: [
+                { value: userCounts[0], name: '1 Istri' },
+                { value: userCounts[1], name: '2 Istri' },
+                { value: userCounts[2], name: '3 Istri' }
+            ]
+        }]
+    };
+    userChart.setOption(userOption);
+</script>
+
 @endsection
