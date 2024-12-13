@@ -29,7 +29,7 @@
                         <div class="col">
                             <div class="form-group">
                                 <label for="email" class="form-label">Email</label>
-                                <input type="email" class="form-control" name="writer_email" id="email" value="" readonly>
+                                <input type="email" class="form-control" name="writer_email" id="email" value="{{ old('writer_email') }}" readonly>
                             </div>
                         </div>
                     </div>
@@ -39,7 +39,7 @@
                     <!-- Upload Gambar -->
                     <div class="form-group mb-3">
                         <label for="image" class="form-label">Upload Gambar</label>
-                        <input type="file" class="form-control @error('image') is-invalid @enderror" name="image" id="image" accept="image/*" required>
+                        <input type="file" class="form-control @error('image') is-invalid @enderror" name="image" id="image" accept="image/*" value="{{ old('image') }}" required>
                         <small class="form-text text-muted">Format yang didukung: JPG, PNG, JPEG (Maks. 2MB).</small>
                         @error('image')
                             <div class="invalid-feedback">{{ $message }}</div>
@@ -49,7 +49,7 @@
                     <!-- Title -->
                     <div class="form-group mb-3">
                         <label for="title" class="form-label">Judul</label>
-                        <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" id="title" placeholder="Isi Judul Artikel..." required>
+                        <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" id="title" placeholder="Isi Judul Artikel..." value="{{ old('title') }}" required>
                         @error('title')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
@@ -58,7 +58,7 @@
                     <!-- Content -->
                     <div class="form-group mb-3">
                         <label for="description" class="form-label">Isi</label>
-                        <textarea class="form-control @error('content') is-invalid @enderror" name="content" id="content" rows="25" placeholder="Tuliskan Artikel anda..." required></textarea>
+                        <textarea class="form-control @error('content') is-invalid @enderror" name="content" id="content" rows="25" placeholder="Tuliskan Artikel anda..." value="{{ old('content') }}" required></textarea>
                         @error('content')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
