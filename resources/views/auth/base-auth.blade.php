@@ -40,6 +40,8 @@
   <!-- CSS Files -->
   <link id="pagestyle" href="{{asset('argon/assets/css/argon-dashboard.min.css?v=2.1.0" ')}}" rel="stylesheet" />
   <!-- Anti-flicker snippet (recommended)  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
   <style>
     .async-hide {
       opacity: 0 !important
@@ -130,19 +132,16 @@
               <ul class="navbar-nav mx-auto">
                 <li class="nav-item">
                   <a class="nav-link d-flex align-items-center me-2 active" aria-current="page" href="{{route('landing.index')}}">
-                    <i class="fa fa-chart-pie opacity-6 text-dark me-1"></i>
                     Home
                   </a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link me-2" href="{{route('landing.about')}}">
-                    <i class="fas fa-user-circle opacity-6 text-dark me-1"></i>
                     About App
                   </a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link me-2" href="{{route('landing.features')}}">
-                    <i class="fas fa-key opacity-6 text-dark me-1"></i>
                     Features
                   </a>
                 </li>

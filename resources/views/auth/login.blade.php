@@ -25,11 +25,14 @@
                                                 </span>
                                             @enderror
                                         </div>
-                                        <div class="mb-3">
+                                        <div class="mb-3 position-relative">
                                             <input type="password"
                                                 class="form-control form-control-lg @error('password') is-invalid @enderror"
-                                                name="password" required autocomplete="current-password"
+                                                name="password" id="password" required autocomplete="current-password"
                                                 placeholder="Password" aria-label="Password">
+                                            <span class="position-absolute top-50 end-0 translate-middle-y me-3" style="cursor: pointer;" id="togglePassword">
+                                                <i class="fa fa-light fa-eye"></i>
+                                            </span>
                                             @error('password')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -71,3 +74,35 @@
         </section>
     </main>
 @endsection
+
+@section('scripts')
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const passwordInput = document.getElementById('password');
+        const togglePassword = document.getElementById('togglePassword');
+        const toggleIcon = togglePassword.querySelector('i'); // Target <i> element
+
+        // Hide the icon initially
+        togglePassword.style.display = 'none';
+
+        // Show/hide the toggle icon based on input value
+        passwordInput.addEventListener('input', () => {
+            if (passwordInput.value.trim() === '') {
+                togglePassword.style.display = 'none';
+            } else {
+                togglePassword.style.display = 'block';
+            }
+        });
+
+        togglePassword.addEventListener('click', () => {
+            // Toggle password visibility
+            const isPassword = passwordInput.getAttribute('type') === 'password';
+            passwordInput.setAttribute('type', isPassword ? 'text' : 'password');
+
+            // Toggle icon class
+            toggleIcon.className = isPassword ? 'fa fa-eye-slash' : 'fa fa-eye';
+        });
+    });
+</script>
+@endsection
+
