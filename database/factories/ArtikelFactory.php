@@ -19,11 +19,11 @@ class ArtikelFactory extends Factory
     {
         return [
             'title' => $this->faker->text(10),
-            'content' => $this->faker->text(250),
+            'content' => $this->faker->text(2500),
             'writer_id' => User::factory(),
             'writer_name' => $this->faker->name,
             'writer_email' => $this->faker->safeEmail,
-            'image' => 'images/article/1731835366.png',
+            'image' => 'images/article/1733063491.jpg',
         ];
     }
 }
