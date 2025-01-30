@@ -14,7 +14,7 @@ PerumKita adalah aplikasi web berbasis Laravel yang dirancang untuk memfasilitas
 
     ```bash
     git clone https://github.com/username/perumkita.git
-    cd perumkita
+    cd perumkita-laravel
     ```
 
 2. Instal dependensi menggunakan Composer:
