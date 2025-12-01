@@ -11,4 +11,8 @@ export default defineConfig({
             refresh: true,
         }),
     ],
+    // BARIS BARU INI YANG BIKIN SEMUA JADI BENAR
+    base: process.env.NODE_ENV === 'development' 
+          ? process.env.ASSET_URL 
+          : '/',
 });
